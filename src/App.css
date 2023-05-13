@@ -47,6 +47,6 @@ nav > ul {
   padding: 16px 32px;
 }
 
-h1 {
-  margin-top: 100px;
+.nav-spacer {
+  height: 100px;
 }

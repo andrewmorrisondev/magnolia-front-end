@@ -8,6 +8,7 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import RecipesList from './pages/RecipesList/RecipesList'
 import Profiles from './pages/Profiles/Profiles'
+import ProfileDetails from './pages/ProfileDetails/ProfileDetails'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 
 // components
@@ -36,10 +37,16 @@ function App() {
 
   return (
     <>
+      <div className="nav-spacer"></div>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route path="/recipes" element={<RecipesList />} />
+        <Route 
+          path="/profiles/:id" 
+          element={<ProfileDetails user={user}/>}
+        />
+        
         <Route
           path="/profiles"
           element={

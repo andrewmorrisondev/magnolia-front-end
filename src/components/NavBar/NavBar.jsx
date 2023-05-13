@@ -17,12 +17,14 @@ const NavBar = ({ user, handleLogout }) => {
 
   const protectedLinks = (
     <ul>
-      <li><NavLink to="#">My Profile</NavLink></li>
       <li><NavLink to="" onClick={handleLogout}>LOG OUT</NavLink></li>
       <li><NavLink to="/auth/change-password">Change Password</NavLink></li>
       <li><NavLink to="#">FamilyTreeDetails</NavLink></li>
       <li><NavLink to="/">Landing</NavLink></li>
       <li><NavLink to="/recipes">RecipesList</NavLink></li>
+      {user && 
+        <li><NavLink to={`/profiles/${user._id}`}>My Profile</NavLink></li>
+      }
     </ul>
   )
 
