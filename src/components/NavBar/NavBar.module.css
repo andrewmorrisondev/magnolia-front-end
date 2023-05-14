@@ -15,6 +15,12 @@
   width: 65px;
 }
 
+img:hover {
+  transform: scale(1.1, 1.1);
+  animation-name: icon;
+  animation-duration: 0.5s;
+}
+
 .container ul {
   margin: 0;
   padding: 0;
@@ -39,6 +45,11 @@
 
 .right li {
   margin-left: 35px;
+}
+
+@keyframes icon {
+  from {transform: scale(1, 1);}
+  to {transform: scale(1.1, 1.1);}
 }
 
 @media only screen and (max-width: 414px) {
