@@ -7,25 +7,29 @@ import styles from './NavBar.module.css'
 const NavBar = ({ user, handleLogout }) => {
 
   const publicLinks = (
-    <ul>
+    <ul className={styles.left}>
+      <li><NavLink to="/"><img src="src/assets/icons/noun-magnolia-5449337.png"></img></NavLink></li>
       <li><NavLink to="/auth/login">Log In</NavLink></li>
       <li><NavLink to="/auth/signup">Sign Up</NavLink></li>
-      <li><NavLink to="/">Landing</NavLink></li>
-      <li><NavLink to="/recipes">RecipesList</NavLink></li>
+      <li><NavLink to="/recipes">Recipes List</NavLink></li>
     </ul>
   )
 
   const protectedLinks = (
-    <ul>
-      <li><NavLink to="" onClick={handleLogout}>LOG OUT</NavLink></li>
-      <li><NavLink to="/auth/change-password">Change Password</NavLink></li>
-      <li><NavLink to="#">FamilyTreeDetails</NavLink></li>
-      <li><NavLink to="/">Landing</NavLink></li>
-      <li><NavLink to="/recipes">RecipesList</NavLink></li>
-      {user && 
-        <li><NavLink to={`/profiles/${user.profile}`}>My Profile</NavLink></li>
-      }
-    </ul>
+    <>
+      <ul className={styles.left}>
+        <li><NavLink to="/"><img src="src/assets/icons/noun-magnolia-5449337.png"></img></NavLink></li>
+        <li><NavLink to="#">Family Tree Details</NavLink></li>
+        <li><NavLink to="/recipes">Recipes</NavLink></li>
+      </ul>
+      <ul className={styles.right}>
+        {user && 
+          <li><NavLink to={`/profiles/${user.profile}`}>My Profile</NavLink></li>
+        }
+        <li><NavLink to="/auth/change-password">Change Password</NavLink></li>
+        <li><NavLink to="" onClick={handleLogout}>LOG OUT</NavLink></li>
+      </ul>
+    </>
   )
 
   return (

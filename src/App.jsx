@@ -1,6 +1,7 @@
 // npm modules
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 // pages
 import Signup from './pages/Signup/Signup'
@@ -20,13 +21,17 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 // services
 import * as authService from './services/authService'
 import * as recipeService from './services/recipeService'
+import * as profileService from './services/profileService'
 
 // styles
 import './App.css'
+import FamilyTreeDetails from './pages/FamilyTreeDetails/FamilyTreeDetails'
 
 function App() {
   const [user, setUser] = useState(authService.getUser())
-  const[recipes, setRecipes] = useState([])
+  const [recipes, setRecipes] = useState([])
+  const [profile, setProfile] = useState({})
+  const { profileId } = useParams()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -36,6 +41,15 @@ function App() {
     }
     if (user) fetchAllRecipes()
   }, [user])
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const profileData = await profileService.getProfile(profileId)
+      setProfile(profileData)
+    }
+    fetchProfile()
+    {console.log(profileId)}
+  }, [profileId])
 
   const handleLogout = () => {
     authService.logout()
@@ -76,7 +90,7 @@ function App() {
             <RecipesList  
               recipes={recipes} 
               handleAddRecipe={handleAddRecipe}
-            />} 
+            />}
         />
         <Route 
           path={'/recipes/:recipeId'}
@@ -96,11 +110,22 @@ function App() {
             />
           }
         />
+
+        <Route 
+          path={'/trees/:treeId'}
+          element={
+            <FamilyTreeDetails user={user}/>
+          }
+        />
+
         <Route 
           path="/profiles/:profileId" 
-          element={<ProfileDetails />}
+          element={
+            <ProfileDetails
+              profile={profile}
+            />
+          }
         />
-        
         <Route
           path="/profiles"
           element={
@@ -109,6 +134,8 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        {/* AUTH BELOW */}
         <Route
           path="/auth/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}
@@ -125,6 +152,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        {/* AUTH ABOVE */}
       </Routes>
     </>
   )

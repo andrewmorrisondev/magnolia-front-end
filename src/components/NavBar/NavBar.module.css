@@ -12,22 +12,44 @@
 }
 
 .container img {
-  width: 50px;
+  width: 65px;
+}
+
+img:hover {
+  transform: scale(1.1, 1.1);
+  animation-name: icon;
+  animation-duration: 0.5s;
 }
 
 .container ul {
   margin: 0;
+  padding: 0;
   width: 100%;
   display: flex;
   list-style: none;
   font-weight: bold;
   align-items: center;
+}
+
+.left {
   justify-content: flex-start;
 }
 
-.container li {
+.right {
+  justify-content: flex-end;
+}
+
+.left li {
+  margin-right: 35px;
+}
+
+.right li {
   margin-left: 35px;
-  text-align: left;
+}
+
+@keyframes icon {
+  from {transform: scale(1, 1);}
+  to {transform: scale(1.1, 1.1);}
 }
 
 @media only screen and (max-width: 414px) {
