@@ -7,11 +7,11 @@ import styles from './NavBar.module.css'
 const NavBar = ({ user, handleLogout }) => {
 
   const publicLinks = (
-    <ul>
+    <ul className={styles.left}>
+      <li><NavLink to="/"><img src="src/assets/icons/noun-magnolia-5449337.png"></img></NavLink></li>
       <li><NavLink to="/auth/login">Log In</NavLink></li>
       <li><NavLink to="/auth/signup">Sign Up</NavLink></li>
-      <li><NavLink to="/">Landing</NavLink></li>
-      <li><NavLink to="/recipes">RecipesList</NavLink></li>
+      <li><NavLink to="/recipes">Recipes List</NavLink></li>
     </ul>
   )
 
