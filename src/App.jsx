@@ -9,6 +9,7 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import RecipesList from './pages/RecipesList/RecipesList'
 import RecipeDetails from './pages/RecipeDetails/RecipeDetails'
+import EditRecipe from './pages/EditRecipe/EditRecipe'
 import Profiles from './pages/Profiles/Profiles'
 import ProfileDetails from './pages/ProfileDetails/ProfileDetails'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
@@ -60,22 +61,53 @@ function App() {
     setUser(authService.getUser())
   }
 
+  const handleAddRecipe = async (recipeFormData) => {
+    const newRecipe = await recipeService.create(recipeFormData)
+    setRecipes([newRecipe, ...recipes])
+    navigate('/recipes')
+  }
+
+  const handleUpdateRecipe = async (recipeFormData) => {
+    const updatedRecipe = await recipeService.update(recipeFormData)
+    setRecipes(recipes.map((r) => recipeFormData._id === r._id ? updatedRecipe : r))
+    navigate('/recipes')
+  }
+
+  const handleDeleteRecipe = async (recipeId) => {
+    const deletedRecipe = await recipeService.delete(recipeId)
+    setRecipes(recipes.filter(r => r._id !== deletedRecipe._id))
+    navigate('/recipes')
+  }
+
   return (
     <>
       <div className="nav-spacer"></div>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
-
-        <Route 
-          path="/recipes" 
-          element={<RecipesList  recipes={recipes} />
-          } 
+        <Route path="/recipes" 
+          element={
+            <RecipesList  
+              recipes={recipes} 
+              handleAddRecipe={handleAddRecipe}
+            />}
         />
         <Route 
           path={'/recipes/:recipeId'}
           element={
-            <RecipeDetails user={user}/>
+            <RecipeDetails 
+              user={user} 
+              handleDeleteRecipe={handleDeleteRecipe}
+            />
+          }
+        />
+        <Route 
+          path={'/recipes/:recipeId/edit'}
+          element={
+            <EditRecipe 
+              user={user} 
+              handleUpdateRecipe={handleUpdateRecipe}
+            />
           }
         />
 
