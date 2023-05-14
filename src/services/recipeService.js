@@ -57,10 +57,24 @@ async function update(recipeFormData) {
   }
 }
 
+async function deleteRecipe(recipeId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${recipeId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 export {
   index,
   show,
   create,
   update,
+  deleteRecipe as delete,
 }

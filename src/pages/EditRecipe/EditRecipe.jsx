@@ -12,7 +12,7 @@ const EditRecipe = (props) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
-    // dont forget function here
+    props.handleUpdateRecipe(formData)
   }
 
   return (  
@@ -28,7 +28,7 @@ const EditRecipe = (props) => {
           placeholder="Name"
           onChange={handleChange} 
         />
-        <label htmlFor="ingredients-input">Name</label>
+        <label htmlFor="ingredients-input">Ingredients</label>
         <input 
           type="text"
           name="ingredients"
@@ -37,7 +37,7 @@ const EditRecipe = (props) => {
           placeholder="Ingredients"
           onChange={handleChange} 
         />
-        <label htmlFor="directions-input">Name</label>
+        <label htmlFor="directions-input">Directions</label>
         <input 
           type="text"
           name="directions"

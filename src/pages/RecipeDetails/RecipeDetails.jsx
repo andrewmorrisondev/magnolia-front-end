@@ -24,8 +24,10 @@ if (!recipe) return <h1>Loading... </h1>
       <h1>{recipe.name}</h1>
       <h3>By {recipe.creator.name}</h3>
       <>
-      <Link to={`/recipes/${recipeId}/edit`}>Edit</Link>
-      <button>Delete</button>
+        <Link to={`/recipes/${recipeId}/edit`} state={recipe}>Edit</Link>
+        <button onClick={() => props.handleDeleteRecipe(recipeId)}>
+          Delete
+        </button>
       </>
       <h2>{recipe.ingredients}</h2>
       <h3>{recipe.directions}</h3>
