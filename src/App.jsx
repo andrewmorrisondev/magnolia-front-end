@@ -13,6 +13,7 @@ import EditRecipe from './pages/EditRecipe/EditRecipe'
 import Profiles from './pages/Profiles/Profiles'
 import ProfileDetails from './pages/ProfileDetails/ProfileDetails'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import FamilyTreeDetails from './pages/FamilyTreeDetails/FamilyTreeDetails'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -22,6 +23,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import * as authService from './services/authService'
 import * as recipeService from './services/recipeService'
 import * as profileService from './services/profileService'
+import * as treeService from './services/treeService'
 
 // styles
 import './App.css'
@@ -31,7 +33,7 @@ function App() {
   const [user, setUser] = useState(authService.getUser())
   const [recipes, setRecipes] = useState([])
   const [profile, setProfile] = useState({})
-  const { profileId } = useParams()
+  const [tree, setTree] = useState({})
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -44,12 +46,24 @@ function App() {
 
   useEffect(() => {
     const fetchProfile = async () => {
-      const profileData = await profileService.getProfile(profileId)
+      const profileData = await profileService.getProfile(user.profile)
       setProfile(profileData)
     }
-    fetchProfile()
-    {console.log(profileId)}
-  }, [profileId])
+    if (user) {
+      fetchProfile()
+    }
+    {console.log(profile)}
+  }, [user])
+
+  useEffect(() => {
+    const fetchTree = async () => {
+      const treeData = await treeService.show(profile.familyTree[0]._id)
+      setTree(treeData)
+    }
+    if (profile.familyTree && profile.familyTree.length > 0) {
+      fetchTree()
+    }
+  }, [profile])
 
   const handleLogout = () => {
     authService.logout()
@@ -82,7 +96,7 @@ function App() {
   return (
     <>
       <div className="nav-spacer"></div>
-      <NavBar user={user} handleLogout={handleLogout} />
+      <NavBar user={user} tree={tree} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route path="/recipes" 
@@ -111,12 +125,12 @@ function App() {
           }
         />
 
-        {/* <Route 
-          path={'/trees/:treeId'}
+        <Route 
+          path={`/trees/${tree._id}`}
           element={
-            <FamilyTreeDetails user={user}/>
+            <FamilyTreeDetails user={user} tree={tree}/>
           }
-        /> */}
+        />
 
         <Route 
           path="/profiles/:profileId" 
