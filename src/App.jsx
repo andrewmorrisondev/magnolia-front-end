@@ -7,6 +7,7 @@ import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import RecipesList from './pages/RecipesList/RecipesList'
+import RecipeDetails from './pages/RecipeDetails/RecipeDetails'
 import Profiles from './pages/Profiles/Profiles'
 import ProfileDetails from './pages/ProfileDetails/ProfileDetails'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
@@ -52,6 +53,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route path="/recipes" element={<RecipesList  recipes={recipes} />} />
+        <Route 
+          path={'/recipes/:recipeId'}
+          element={
+            <RecipeDetails user={user}/>
+          }
+        />
         <Route 
           path="/profiles/:id" 
           element={<ProfileDetails user={user}/>}
