@@ -17,12 +17,12 @@
 
 .container ul {
   margin: 0;
+  padding: 0;
   width: 100%;
   display: flex;
   list-style: none;
   font-weight: bold;
   align-items: center;
-  text-align: center;
 }
 
 .left {
@@ -33,12 +33,11 @@
   justify-content: flex-end;
 }
 
-.container li {
-  margin-left: 0px;
-  text-align: left;
+.left li {
+  margin-right: 35px;
 }
 
-.container li:nth-child(-n + 3) {
+.right li {
   margin-left: 35px;
 }
 
