@@ -16,16 +16,20 @@ const NavBar = ({ user, handleLogout }) => {
   )
 
   const protectedLinks = (
-    <ul>
-      <li><NavLink to="" onClick={handleLogout}>LOG OUT</NavLink></li>
-      <li><NavLink to="/auth/change-password">Change Password</NavLink></li>
-      <li><NavLink to="#">FamilyTreeDetails</NavLink></li>
-      <li><NavLink to="/">Landing</NavLink></li>
-      <li><NavLink to="/recipes">RecipesList</NavLink></li>
-      {user && 
-        <li><NavLink to={`/profiles/${user.profile}`}>My Profile</NavLink></li>
-      }
-    </ul>
+    <>
+      <ul classname={styles.left}>
+        <li><NavLink to="/"><img src="src/assets/icons/noun-magnolia-5449337.png"></img></NavLink></li>
+        <li><NavLink to="#">Family Tree Details</NavLink></li>
+        <li><NavLink to="/recipes">Recipes</NavLink></li>
+      </ul>
+      <ul className={styles.right}>
+        {user && 
+          <li><NavLink to={`/profiles/${user.profile}`}>My Profile</NavLink></li>
+        }
+        <li><NavLink to="/auth/change-password">Change Password</NavLink></li>
+        <li><NavLink to="" onClick={handleLogout}>LOG OUT</NavLink></li>
+      </ul>
+    </>
   )
 
   return (
