@@ -1,9 +1,13 @@
-const RecipesList = () => {
+const RecipesList = (props) => {
   return (
     <main>
-      <h1>RecipesList</h1>
+      {props.recipes.map(recipe => (
+        <p key={recipe._id}>
+          {recipe.name}
+        </p>
+      ))}
     </main>
   )
 }
- 
+
 export default RecipesList

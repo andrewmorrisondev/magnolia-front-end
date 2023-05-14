@@ -1,5 +1,5 @@
 // npm modules
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 // pages
@@ -17,13 +17,23 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
 import * as authService from './services/authService'
+import * as recipeService from './services/recipeService'
 
 // styles
 import './App.css'
 
 function App() {
   const [user, setUser] = useState(authService.getUser())
+  const[recipes, setRecipes] = useState([])
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const fetchAllRecipes = async () => {
+      const data = await recipeService.index()
+      setRecipes(data)
+    }
+    if (user) fetchAllRecipes()
+  }, [user])
 
   const handleLogout = () => {
     authService.logout()
@@ -41,7 +51,7 @@ function App() {
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
-        <Route path="/recipes" element={<RecipesList />} />
+        <Route path="/recipes" element={<RecipesList  recipes={recipes} />} />
         <Route 
           path="/profiles/:id" 
           element={<ProfileDetails user={user}/>}
