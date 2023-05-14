@@ -19,4 +19,15 @@ async function create(treeFormData) {
   }
 }
 
-export { create }
+async function show(treeId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${treeId}`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` }
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export { create, show }
