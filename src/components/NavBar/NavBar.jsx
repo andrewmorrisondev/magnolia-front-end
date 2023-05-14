@@ -23,7 +23,7 @@ const NavBar = ({ user, handleLogout }) => {
       <li><NavLink to="/">Landing</NavLink></li>
       <li><NavLink to="/recipes">RecipesList</NavLink></li>
       {user && 
-        <li><NavLink to={`/profiles/${user._id}`}>My Profile</NavLink></li>
+        <li><NavLink to={`/profiles/${user.profile}`}>My Profile</NavLink></li>
       }
     </ul>
   )

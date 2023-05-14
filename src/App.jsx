@@ -53,8 +53,8 @@ function App() {
         <Route path="/" element={<Landing user={user} />} />
         <Route path="/recipes" element={<RecipesList  recipes={recipes} />} />
         <Route 
-          path="/profiles/:id" 
-          element={<ProfileDetails user={user}/>}
+          path="/profiles/:profileId" 
+          element={<ProfileDetails />}
         />
         
         <Route
