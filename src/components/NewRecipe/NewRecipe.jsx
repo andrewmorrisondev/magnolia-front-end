@@ -28,6 +28,7 @@ const NewRecipe = (props) => {
           value={formData.name}
           placeholder="Name"
           onChange={handleChange} 
+          required
         />
         <label htmlFor="ingredients-input">Ingredients</label>
         <input 
@@ -37,6 +38,7 @@ const NewRecipe = (props) => {
           value={formData.ingredients}
           placeholder="Ingredients"
           onChange={handleChange} 
+          required
         />
         <label htmlFor="directions-input">Directions</label>
         <input 
@@ -45,7 +47,8 @@ const NewRecipe = (props) => {
           id="directions-input"
           value={formData.directions}
           placeholder="Directions"
-          onChange={handleChange} 
+          onChange={handleChange}
+          required
         />
         <button type="submit">SUBMIT</button>
       </form>

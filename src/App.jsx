@@ -25,7 +25,7 @@ import * as profileService from './services/profileService'
 
 // styles
 import './App.css'
-import FamilyTreeDetails from './pages/FamilyTreeDetails/FamilyTreeDetails'
+// import FamilyTreeDetails from './pages/FamilyTreeDetails/FamilyTreeDetails'
 
 function App() {
   const [user, setUser] = useState(authService.getUser())
@@ -111,12 +111,12 @@ function App() {
           }
         />
 
-        <Route 
+        {/* <Route 
           path={'/trees/:treeId'}
           element={
             <FamilyTreeDetails user={user}/>
           }
-        />
+        /> */}
 
         <Route 
           path="/profiles/:profileId" 
