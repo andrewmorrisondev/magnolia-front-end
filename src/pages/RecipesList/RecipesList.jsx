@@ -1,10 +1,11 @@
+// components
+import RecipeCard from "../../components/RecipeCard/RecipeCard"
+
 const RecipesList = (props) => {
   return (
     <main>
       {props.recipes.map(recipe => (
-        <p key={recipe._id}>
-          {recipe.name}
-        </p>
+        <RecipeCard key={recipe._id} recipe={recipe} />
       ))}
     </main>
   )

@@ -60,8 +60,8 @@ function App() {
           }
         />
         <Route 
-          path="/profiles/:id" 
-          element={<ProfileDetails user={user}/>}
+          path="/profiles/:profileId" 
+          element={<ProfileDetails />}
         />
         
         <Route
