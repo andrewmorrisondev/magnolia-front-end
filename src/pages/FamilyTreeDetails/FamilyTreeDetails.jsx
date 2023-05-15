@@ -13,6 +13,7 @@ const FamilyTreeDetails = ({ user, tree, handleAddRecipe, handleAddMember}) => {
       <FamilyMembersList tree={tree} members={tree.members} />
       <NewFamilyMember handleAddMember={handleAddMember} />
       <NewRecipe handleAddRecipe={handleAddRecipe} />
+      
     </main>
   )
 }
