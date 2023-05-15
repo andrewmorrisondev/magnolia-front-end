@@ -78,7 +78,6 @@ function App() {
   const handleAddRecipe = async (recipeFormData) => {
     const newRecipe = await recipeService.create(recipeFormData)
     setRecipes([newRecipe, ...recipes])
-    navigate('/recipes')
   }
 
   const handleUpdateRecipe = async (recipeFormData) => {
