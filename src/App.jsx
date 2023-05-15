@@ -1,7 +1,6 @@
 // npm modules
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
 
 // pages
 import Signup from './pages/Signup/Signup'
@@ -14,6 +13,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ProfileDetails from './pages/ProfileDetails/ProfileDetails'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import FamilyTreeDetails from './pages/FamilyTreeDetails/FamilyTreeDetails'
+import EditMember from './pages/EditMember/EditMember'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -100,6 +100,16 @@ function App() {
     setTree({ ...tree, members: [...members, newMember] })
   }
 
+  const handleDeleteMember = async (memberId, treeId) => {
+    const deletedMember = await treeService.deleteMember(memberId, treeId)
+    setMembers(members.filter(m => m._id !== deletedMember._id))
+  }
+
+  const handleUpdateMember = async (memberFormData, treeId) => {
+    const updatedMember = await treeService.updateMember(memberFormData, treeId)
+    setMembers(members.map((m) => memberFormData._id === m._id ? updatedMember : m))
+  }
+
   return (
     <>
       <div className="nav-spacer"></div>
@@ -141,10 +151,23 @@ function App() {
                   user={user}
                   tree={tree}
                   handleAddMember={handleAddMember}
+                  handleDeleteMember={handleDeleteMember}
                   handleAddRecipe={handleAddRecipe}
                 />
             )}
               </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path={`/trees/:treeId/members/:memberId/edit`}
+          element={
+            <ProtectedRoute user={user}>
+              <EditMember 
+                tree={tree}
+                handleUpdateMember={handleUpdateMember}
+              />
+            </ProtectedRoute>
           }
         />
 
