@@ -11,6 +11,7 @@ const FamilyTreeDetails = ({ user, tree, handleAddRecipe}) => {
       <h2>{tree.name}</h2>
       <FamilyMembersList tree={tree} members={tree.members} />
       <NewRecipe handleAddRecipe={handleAddRecipe} />
+      
     </main>
   )
 }
