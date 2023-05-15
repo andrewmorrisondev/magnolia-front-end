@@ -12,6 +12,11 @@
   box-sizing: inherit;
 }
 
+@font-face {
+  font-family: "Roboto";
+  src: url('src/assets/fonts/Roboto-Medium.ttf');
+}
+
 html {
   --magnolia-dark-purp: #643843;
   --magnolia-light-purp: #99627A;
