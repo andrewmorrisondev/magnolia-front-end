@@ -128,7 +128,14 @@ function App() {
         <Route 
           path={`/trees/${tree._id}`}
           element={
-            <FamilyTreeDetails user={user} tree={tree}/>
+            <ProtectedRoute user={user}>
+                {tree._id && (
+                <FamilyTreeDetails 
+                  user={user}
+                  tree={tree}
+                />
+            )}
+              </ProtectedRoute>
           }
         />
 
@@ -143,8 +150,8 @@ function App() {
         <Route
           path="/profiles"
           element={
-            <ProtectedRoute user={user}>
-              <Profiles />
+            <ProtectedRoute>
+              <Profiles user={user}/>
             </ProtectedRoute>
           }
         />
