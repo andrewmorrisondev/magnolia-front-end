@@ -34,6 +34,7 @@ function App() {
   const [recipes, setRecipes] = useState([])
   const [profile, setProfile] = useState({})
   const [tree, setTree] = useState({})
+  const [members, setMembers] = useState([])
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -59,6 +60,7 @@ function App() {
     const fetchTree = async () => {
       const treeData = await treeService.show(profile.familyTree[0]._id)
       setTree(treeData)
+      setMembers(treeData.members)
     }
     if (profile.familyTree && profile.familyTree.length > 0) {
       fetchTree()
@@ -91,6 +93,12 @@ function App() {
     const deletedRecipe = await recipeService.delete(recipeId)
     setRecipes(recipes.filter(r => r._id !== deletedRecipe._id))
     navigate('/recipes')
+  }
+
+  const handleAddMember = async (memberFormData) => {
+    const newMember = await treeService.createMember(memberFormData, tree._id)
+    setMembers([...members, newMember])
+    setTree({ ...tree, members: [...members, newMember] })
   }
 
   return (
@@ -126,13 +134,14 @@ function App() {
         />
 
         <Route 
-          path={`/trees/${tree._id}`}
+          path={`/trees/${tree._id ?? ':treeId'}`}
           element={
             <ProtectedRoute user={user}>
                 {tree._id && (
                 <FamilyTreeDetails 
                   user={user}
                   tree={tree}
+                  handleAddMember={handleAddMember}
                   handleAddRecipe={handleAddRecipe}
                 />
             )}
