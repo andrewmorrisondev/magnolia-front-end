@@ -18,6 +18,11 @@ const NewRecipe = (props) => {
   const handleSubmit = (evt) => {
     evt.preventDefault()
 		props.handleAddRecipe(formData)
+    setFormData({
+      name: '',
+      ingredients: '',
+      directions: '',
+    })
   }
 
   return (  
