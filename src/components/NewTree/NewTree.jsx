@@ -14,14 +14,13 @@ const NewTree = (props) => {
     setFormData({ name: '' })
   }
 
-
   return (
     <form className="new-tree-form" onSubmit={handleSubmit}>
       <input 
         type="text"
         name="name"
         id="text-input"
-        value={formData.text}
+        value={formData.name}
         placeholder="My Family Tree"
         onChange={handleChange}
       />

@@ -120,7 +120,6 @@ function App() {
     const newTree = await treeService.create(treeFormData)
     setTree(newTree)
     setProfile({ ...profile, trees: [profile.familyTree, newTree] })
-    navigate(`/trees/${tree._id}`)
   }
 
   return (
@@ -189,6 +188,8 @@ function App() {
           element={
             <ProtectedRoute user={user}>
               <ProfileDetails
+                user={user}
+                tree={tree}
                 profile={profile}
                 handleAddTree={handleAddTree}
               />
