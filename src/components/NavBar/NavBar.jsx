@@ -18,7 +18,7 @@ const NavBar = ({ user, tree, handleLogout }) => {
   const protectedLinks = (
     <>
       <ul className={styles.left}>
-        <li><NavLink to="/"><img src="src/assets/icons/noun-magnolia-5449337.png"></img></NavLink></li>
+        <li><NavLink to="/"><img src="/src/assets/icons/noun-magnolia-5449337.png"></img></NavLink></li>
         <li><NavLink to={`/trees/${tree._id}`}>Family Tree Details</NavLink></li>
         <li><NavLink to="/recipes">Recipes</NavLink></li>
       </ul>
