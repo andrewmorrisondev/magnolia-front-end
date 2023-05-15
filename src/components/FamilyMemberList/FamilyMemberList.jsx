@@ -1,13 +1,16 @@
 // components
 import FamilyMemberCard from "../../components/FamilyMemberCard/FamilyMemberCard"
 
-const FamilyMembersList = (props) => {
+// css
+import styles from './FamilyMemberList.module.css'
+
+const FamilyMembersList = ({tree, members}) => {
   return (
-    <main>
-      {props.members.map(member => (
+    <div className={styles.familyMemberList}>
+      {members.map(member => (
         <FamilyMemberCard key={member._id} member={member} />
       ))}
-    </main>
+    </div>
   )
 }
 

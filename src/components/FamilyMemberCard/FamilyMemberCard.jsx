@@ -1,7 +1,12 @@
+// css
+import styles from './FamilyMemberCard.module.css'
+
 const FamilyMemberCard = ({ member }) => {
   return (  
     <>
-      <h1>{member.name}</h1>
+      <div className={styles.familyMemberCard}>
+        <p>{member.name}</p>
+      </div>
     </>
   )
 }

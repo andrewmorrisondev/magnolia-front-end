@@ -1,6 +1,9 @@
 // npm modules
 import { useState } from "react"
 
+// css
+import styles from './NewRecipe.module.css'
+
 const NewRecipe = (props) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -19,7 +22,7 @@ const NewRecipe = (props) => {
 
   return (  
     <main>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={styles.newRecipeForm}>
         <label htmlFor="name-input">Name</label>
         <input 
           type="text"

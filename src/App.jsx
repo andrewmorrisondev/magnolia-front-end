@@ -133,6 +133,7 @@ function App() {
                 <FamilyTreeDetails 
                   user={user}
                   tree={tree}
+                  handleAddRecipe={handleAddRecipe}
                 />
             )}
               </ProtectedRoute>
