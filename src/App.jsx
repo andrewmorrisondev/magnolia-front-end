@@ -116,6 +116,13 @@ function App() {
     navigate(`/trees/${tree._id}`)
   }
 
+  const handleAddTree = async (treeFormData) => {
+    const newTree = await treeService.create(treeFormData)
+    setTree(newTree)
+    setProfile({ ...profile, trees: [profile.familyTree, newTree] })
+    navigate(`/trees/${tree._id}`)
+  }
+
   return (
     <>
       <div className="nav-spacer"></div>
@@ -180,15 +187,18 @@ function App() {
         <Route 
           path="/profiles/:profileId" 
           element={
-            <ProfileDetails
-              profile={profile}
-            />
+            <ProtectedRoute user={user}>
+              <ProfileDetails
+                profile={profile}
+                handleAddTree={handleAddTree}
+              />
+            </ProtectedRoute>
           }
         />
         <Route
           path="/profiles"
           element={
-            <ProtectedRoute>
+            <ProtectedRoute user={user}>
               <Profiles user={user}/>
             </ProtectedRoute>
           }

@@ -11,7 +11,7 @@ const NewTree = (props) => {
   const handleSubmit = (evt) => {
     evt.preventDefault()
     props.handleAddTree(formData)
-    setFormData({ name: "" })
+    setFormData({ name: '' })
   }
 
 

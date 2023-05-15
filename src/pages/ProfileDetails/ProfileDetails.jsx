@@ -10,26 +10,11 @@ import * as treeService from '../../services/treeService'
 import * as profileService from '../../services/profileService'
 
 const ProfileDetails = (props) => {
-  const { profileId } = useParams()
-  const [profile, setProfile] = useState(null)
-
-  const handleAddTree = async (treeFormData) => {
-    const newTree = await treeService.create(treeFormData)
-    setProfile({ ...profile, trees: [profile.familyTree, newTree] })
-  }
-
-  useEffect(() => {
-    const fetchProfile = async () => {
-      const profileData = await profileService.getProfile(profileId)
-      setProfile(profileData)
-    }
-    fetchProfile()
-  }, [profileId])
 
   return (
     <>
       <NewTree 
-        handleAddTree={handleAddTree}
+        handleAddTree={props.handleAddTree}
       />
       <p>my tree id: </p>
     </>
