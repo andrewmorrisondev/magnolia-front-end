@@ -1,22 +1,23 @@
 // npm modules
-import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 // components
 import NewTree from "../../components/NewTree/NewTree"
 
-// services
-import * as treeService from '../../services/treeService'
-import * as profileService from '../../services/profileService'
-
-const ProfileDetails = (props) => {
-
+const ProfileDetails = ({ user, tree, profile, handleAddTree }) => {
+  
+  // console.log(profile.familyTree.length)
   return (
     <>
+    {
+    !profile.familyTree.length
+    ?
       <NewTree 
-        handleAddTree={props.handleAddTree}
+        handleAddTree={handleAddTree}
       />
-      <p>my tree id: </p>
+    :
+      <Link to={`/trees/${tree._id}`}>MyTree</Link>
+    }
     </>
   )
 }
