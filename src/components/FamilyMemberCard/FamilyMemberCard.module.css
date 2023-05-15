@@ -1,0 +1,11 @@
+.familyMemberCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 150px;
+  width: 200px;
+
+  border: 12px solid var(--magnolia-white);
+  border-radius: 10px;
+}
