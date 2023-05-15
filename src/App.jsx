@@ -110,8 +110,10 @@ function App() {
   const handleUpdateMember = async (memberFormData, treeId) => {
     const updatedMember = await treeService.updateMember(memberFormData, treeId)
     setMembers(members.map((m) => memberFormData._id === m._id ? updatedMember : m))
-    setTree({ ...tree, members: [...members, updatedMember] })
-
+    const updatedTree = await treeService.show(tree._id)
+    setTree(updatedTree)
+    setMembers([...members, updatedMember])
+    navigate(`/trees/${tree._id}`)
   }
 
   return (
