@@ -4,3 +4,7 @@
   flex-direction: column;
 }
 
+.container img {
+  height: 200px;
+  width: 200px;
+}
