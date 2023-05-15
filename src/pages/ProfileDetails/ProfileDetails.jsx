@@ -24,7 +24,7 @@ const ProfileDetails = (props) => {
       setProfile(profileData)
     }
     fetchProfile()
-  }, [profileId, profile])
+  }, [profileId])
 
   return (
     <>

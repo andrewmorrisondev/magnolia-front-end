@@ -1,9 +1,12 @@
-const FamilyTreeDetails = (props) => {
+import FamilyMemberCard from "../../components/FamilyMemberCard/FamilyMemberCard"
+
+const FamilyTreeDetails = ({ user, tree}) => {
 
   return (  
     <main>
-      <h1>FAM TREE</h1>
-      <h2>{props.tree.name}</h2>
+      {console.log(tree)}
+      <h1>{user.name}'s Family Tree</h1>
+      <h2>{tree.name}</h2>
     </main>
   )
 }
