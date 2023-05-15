@@ -33,7 +33,7 @@ function App() {
   const [user, setUser] = useState(authService.getUser())
   const [recipes, setRecipes] = useState([])
   const [profile, setProfile] = useState({})
-  const [tree, setTree] = useState({})
+  const [tree, setTree] = useState([])
   const [members, setMembers] = useState([])
   const navigate = useNavigate()
 
@@ -96,18 +96,22 @@ function App() {
 
   const handleAddMember = async (memberFormData) => {
     const newMember = await treeService.createMember(memberFormData, tree._id)
+    const updatedTree = await treeService.show(tree._id)
+    setTree(updatedTree)
     setMembers([...members, newMember])
-    setTree({ ...tree, members: [...members, newMember] })
   }
 
   const handleDeleteMember = async (memberId, treeId) => {
-    const deletedMember = await treeService.deleteMember(memberId, treeId)
-    setMembers(members.filter(m => m._id !== deletedMember._id))
+    await treeService.deleteMember(memberId, treeId)
+    const updatedTree = await treeService.show(treeId)
+    setTree(updatedTree)
   }
 
   const handleUpdateMember = async (memberFormData, treeId) => {
     const updatedMember = await treeService.updateMember(memberFormData, treeId)
     setMembers(members.map((m) => memberFormData._id === m._id ? updatedMember : m))
+    setTree({ ...tree, members: [...members, updatedMember] })
+
   }
 
   return (
