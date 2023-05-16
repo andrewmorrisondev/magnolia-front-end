@@ -23,16 +23,18 @@ const FamilyMembersList = ({tree, members, setMembers, handleDeleteMember}) => {
             member={parent}
             handleDeleteMember={handleDeleteMember} 
           />
-        ))}
+          ))}
       </div>
 
-      <FamilyMemberCard
-        key={tree.creator._id}
-        member={tree.creator}
-        tree={tree} 
-      />
+      <div className={styles.meContainer}>
+        <FamilyMemberCard
+          key={tree.creator._id}
+          member={tree.creator}
+          tree={tree} 
+        />
+      </div>
       
-      <div className={styles.parentsContainer}>
+      <div className={styles.childrenContainer}>
         {members.filter(member => member.relation === 'Child').map(child => (
           <FamilyMemberCard 
             key={child._id}
