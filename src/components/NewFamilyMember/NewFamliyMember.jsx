@@ -5,7 +5,10 @@ import { useState } from "react"
 import styles from './NewFamilyMember.module.css'
 
 const NewFamilyMember = (props) => {
-  const [formData, setFormData] = useState({ name: "" })
+  const [formData, setFormData] = useState({ 
+    name: "" ,
+    relation: "Parent/Guardian",
+  })
 
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
@@ -14,7 +17,7 @@ const NewFamilyMember = (props) => {
   const handleSubmit = (evt) => {
     evt.preventDefault()
 		props.handleAddMember(formData)
-    setFormData({ name: "" })
+    setFormData({ name: "", relation: "Parent/Guardian" })
   }
 
   return (  
@@ -30,6 +33,20 @@ const NewFamilyMember = (props) => {
           required
         />
       </label>
+      <label htmlFor="relation-input">Relation</label>
+      <select 
+        required
+        name="relation" 
+        id="relation-input"
+        value={formData.relation}
+        onChange={handleChange}
+      >
+        <option value="Parent/Guardian">Parent/Guardian</option>
+        <option value="Sibling">Sibling</option>
+        <option value="Child">Child</option>
+        <option value="Significant Other">Significant Other</option>
+        <option value="Grandparent">Grandparent</option>
+      </select>
       <button type="submit">SUBMIT</button>
     </form>
   )

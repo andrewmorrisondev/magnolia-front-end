@@ -27,6 +27,19 @@ const EditMember = ({ tree, handleUpdateMember }) => {
           placeholder="Name"
           onChange={handleChange} 
         />
+        <select 
+        required
+        name="relation" 
+        id="relation-input"
+        value={formData.relation}
+        onChange={handleChange}
+        >
+          <option value="Parent/Guardian">Parent/Guardian</option>
+          <option value="Sibling">Sibling</option>
+          <option value="Child">Child</option>
+          <option value="Significant Other">Significant Other</option>
+          <option value="Grandparent">Grandparent</option>
+        </select>
         <button type="submit">SUBMIT</button>
       </form>
     </main>
