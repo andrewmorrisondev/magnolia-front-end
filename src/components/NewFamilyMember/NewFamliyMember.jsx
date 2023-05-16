@@ -19,16 +19,17 @@ const NewFamilyMember = (props) => {
 
   return (  
     <form onSubmit={handleSubmit} className={styles.newMemberForm}>
-      <label htmlFor="name-input">Add Member</label>
-      <input 
-        type="text"
-        name="name"
-        id="name-input"
-        value={formData.name}
-        placeholder="Name"
-        onChange={handleChange} 
-        required
-      />
+      <label htmlFor="name-input">Add Member
+        <input 
+          type="text"
+          name="name"
+          id="name-input"
+          value={formData.name}
+          placeholder="Billy Bob"
+          onChange={handleChange} 
+          required
+        />
+      </label>
       <button type="submit">SUBMIT</button>
     </form>
   )

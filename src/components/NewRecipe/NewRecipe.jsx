@@ -28,36 +28,39 @@ const NewRecipe = (props) => {
   return (  
     <main>
       <form onSubmit={handleSubmit} className={styles.newRecipeForm}>
-        <label htmlFor="name-input">Name</label>
-        <input 
-          type="text"
-          name="name"
-          id="name-input"
-          value={formData.name}
-          placeholder="Name"
-          onChange={handleChange} 
-          required
-        />
-        <label htmlFor="ingredients-input">Ingredients</label>
-        <input 
-          type="text"
-          name="ingredients"
-          id="ingredients-input"
-          value={formData.ingredients}
-          placeholder="Ingredients"
-          onChange={handleChange} 
-          required
-        />
-        <label htmlFor="directions-input">Directions</label>
-        <input 
-          type="text"
-          name="directions"
-          id="directions-input"
-          value={formData.directions}
-          placeholder="Directions"
-          onChange={handleChange}
-          required
-        />
+        <label htmlFor="name-input">Name
+          <input 
+            type="text"
+            name="name"
+            id="name-input"
+            value={formData.name}
+            placeholder="Mom's Spaghetti"
+            onChange={handleChange} 
+            required
+          />
+        </label>
+        <label htmlFor="ingredients-input">Ingredients
+          <input 
+            type="text"
+            name="ingredients"
+            id="ingredients-input"
+            value={formData.ingredients}
+            placeholder="Pasta, Sauce, Meatballs"
+            onChange={handleChange} 
+            required
+          />
+        </label>
+        <label htmlFor="directions-input">Directions
+          <input 
+            type="text"
+            name="directions"
+            id="directions-input"
+            value={formData.directions}
+            placeholder="Boil water, add pasta, etc."
+            onChange={handleChange}
+            required
+          />
+        </label>
         <button type="submit">SUBMIT</button>
       </form>
     </main>
