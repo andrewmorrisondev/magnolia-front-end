@@ -5,6 +5,8 @@ import { useParams, Link } from "react-router-dom"
 // services
 import * as recipeService from '../../services/recipeService'
 
+import styles from './RecipeDetails.module.css'
+
 const RecipeDetails = (props) => {
 const { recipeId } = useParams()
 const [recipe, setRecipe] = useState(null)
@@ -20,21 +22,29 @@ useEffect(() => {
 if (!recipe) return <h1>Loading... </h1>
 
   return (  
-    <main>
-      <h1>{recipe.name}</h1>
-      <h3>By {recipe.creator.name}</h3>
-      <span>
-        {recipe.creator._id === props.user.profile &&
-          <>
-            <Link to={`/recipes/${recipeId}/edit`} state={recipe}>Edit</Link>
-            <button onClick={() => props.handleDeleteRecipe(recipeId)}>
-              Delete
-            </button>
-          </>
-        }
-      </span>
-      <h2>{recipe.ingredients}</h2>
-      <h3>{recipe.directions}</h3>
+    <main className={styles.container}>
+      <article>
+        <header>
+          <h1>{recipe.name}</h1>
+          <h3>By {recipe.creator.name}</h3>
+          <span>
+            {recipe.creator._id === props.user.profile &&
+              <>
+                <button>
+                  <Link to={`/recipes/${recipeId}/edit`} state={recipe}>Edit</Link>
+                </button>
+                <button onClick={() => props.handleDeleteRecipe(recipeId)}>
+                  Delete
+                </button>
+              </>
+            }
+          </span>
+        </header>
+        <h2>Ingredients</h2>
+        <p>{recipe.ingredients}</p>
+        <h2>Directions</h2>
+        <p>{recipe.directions}</p>
+      </article>
     </main>
   )
 }

@@ -2,6 +2,9 @@
 import { useState } from "react"
 import { useLocation } from "react-router-dom"
 
+// css
+import styles from './EditRecipe.module.css'
+
 const EditRecipe = (props) => {
   const { state } = useLocation()
   const [formData, setFormData] = useState(state)
@@ -29,7 +32,7 @@ const EditRecipe = (props) => {
           onChange={handleChange} 
         />
         <label htmlFor="ingredients-input">Ingredients</label>
-        <input 
+        <textarea 
           type="text"
           name="ingredients"
           id="ingredients-input"
@@ -38,7 +41,7 @@ const EditRecipe = (props) => {
           onChange={handleChange} 
         />
         <label htmlFor="directions-input">Directions</label>
-        <input 
+        <textarea 
           type="text"
           name="directions"
           id="directions-input"

@@ -1,0 +1,70 @@
+.container {
+  height: 100%;
+  display: flex;
+  overflow: scroll;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--card-background);
+}
+
+.container article, .container > section {
+  width: 100%;
+  padding: 21px;
+  display: flex;
+  max-width: 700px;
+  flex-direction: column;
+}
+
+.container p {
+  text-indent: 21px;
+  text-align-last: left;
+}
+
+.container header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.container h1 {
+  margin: 0;
+  margin-bottom: 7px;
+}
+
+.container h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+.container span {
+  width: 100%;
+  display: flex;
+	margin-top: 10px;
+  align-items: center;
+}
+
+.container div {
+  width: 100%;
+}
+
+.container span button, .container span a {
+  margin: 0;
+  width: 20%;
+  padding: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  background: none;
+  margin-left: 7px;
+  border-radius: 5px;
+  text-align: center;
+  color: black;
+}
+
+.container span button, .container span a  {
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

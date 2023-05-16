@@ -28,7 +28,7 @@ const NewRecipe = (props) => {
   return (  
     <main>
       <form onSubmit={handleSubmit} className={styles.newRecipeForm}>
-        <label htmlFor="name-input">Name
+        <label htmlFor="name-input">Name</label>
           <input 
             type="text"
             name="name"
@@ -38,9 +38,8 @@ const NewRecipe = (props) => {
             onChange={handleChange} 
             required
           />
-        </label>
-        <label htmlFor="ingredients-input">Ingredients
-          <input 
+        <label htmlFor="ingredients-input">Ingredients</label>
+          <textarea 
             type="text"
             name="ingredients"
             id="ingredients-input"
@@ -49,9 +48,8 @@ const NewRecipe = (props) => {
             onChange={handleChange} 
             required
           />
-        </label>
-        <label htmlFor="directions-input">Directions
-          <input 
+        <label htmlFor="directions-input">Directions</label>
+          <textarea 
             type="text"
             name="directions"
             id="directions-input"
@@ -60,7 +58,6 @@ const NewRecipe = (props) => {
             onChange={handleChange}
             required
           />
-        </label>
         <button type="submit">SUBMIT</button>
       </form>
     </main>
