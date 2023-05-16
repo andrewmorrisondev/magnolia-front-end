@@ -9,7 +9,6 @@ const FamilyMemberCard = ({ member, tree, handleDeleteMember }) => {
     <>
       <div className={styles.familyMemberCard}>
         <p>{member.name}</p>
-        <p>{member.relation}</p>
         {member._id !== tree.creator._id &&
           <>
             <Link to={`/trees/${tree._id}/members/${member._id}/edit`} state={member}>Edit</Link>

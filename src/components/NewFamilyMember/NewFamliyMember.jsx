@@ -17,6 +17,7 @@ const NewFamilyMember = (props) => {
   const handleSubmit = (evt) => {
     evt.preventDefault()
 		props.handleAddMember(formData)
+    props.setMembers(props.members)
     setFormData({ name: "", relation: "Parent/Guardian" })
   }
 
