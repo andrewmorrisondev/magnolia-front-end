@@ -64,7 +64,7 @@ function App() {
       setTree(treeData)
       setMembers(treeData.members)
     }
-    if (profile.familyTree && profile.familyTree.length > 0) {
+    if (profile?.familyTree && profile?.familyTree.length > 0) {
       fetchTree()
     }
   }, [profile])
@@ -198,6 +198,8 @@ function App() {
                 handleAddTree={handleAddTree}
                 profileLoading={profileLoading}
                 hasTree={hasTree}
+                handleAddMember={handleAddMember}
+                recipes={recipes}
               />
             </ProtectedRoute>
           }

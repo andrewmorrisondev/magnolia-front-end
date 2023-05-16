@@ -12,6 +12,7 @@ const NewTree = (props) => {
     evt.preventDefault()
     props.handleAddTree(formData)
     setFormData({ name: '' })
+    props.handleAddMember({})
   }
 
   return (
