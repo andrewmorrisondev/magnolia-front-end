@@ -3,7 +3,7 @@ import FamilyMembersList from "../../components/FamilyMemberList/FamilyMemberLis
 import NewRecipe from "../../components/NewRecipe/NewRecipe"
 import NewFamilyMember from "../../components/NewFamilyMember/NewFamliyMember"
 
-const FamilyTreeDetails = ({ user, tree, handleAddRecipe, handleAddMember, handleDeleteMember}) => {
+const FamilyTreeDetails = ({ user, tree, handleAddRecipe, setMembers, handleAddMember, handleDeleteMember}) => {
 
   return (  
     <main>
@@ -14,8 +14,12 @@ const FamilyTreeDetails = ({ user, tree, handleAddRecipe, handleAddMember, handl
         tree={tree}
         members={tree.members}
         handleDeleteMember={handleDeleteMember} />
-      <NewFamilyMember handleAddMember={handleAddMember} />
-      <NewRecipe handleAddRecipe={handleAddRecipe} />
+      <NewFamilyMember 
+        handleAddMember={handleAddMember}
+        setMembers={setMembers}
+        members={tree.members}
+      />
+      {/* <NewRecipe handleAddRecipe={handleAddRecipe} /> */}
       
     </main>
   )

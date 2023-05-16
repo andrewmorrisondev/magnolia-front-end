@@ -169,6 +169,7 @@ function App() {
                   handleAddMember={handleAddMember}
                   handleDeleteMember={handleDeleteMember}
                   handleAddRecipe={handleAddRecipe}
+                  setMembers={setMembers}
                 />
             )}
               </ProtectedRoute>
