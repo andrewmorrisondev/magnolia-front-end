@@ -20,8 +20,8 @@
 html {
   --magnolia-dark-purp: #643843;
   --magnolia-light-purp: #99627A;
-  --magnolia-pink: #C88EA7;
-  --magnolia-white: #E7CBCB;
+  --magnolia-pink: #ddc8d1;
+  --magnolia-white: #f1eaea;
 }
 
 body {
@@ -33,7 +33,7 @@ body {
   font-family: "Roboto";
 
   color: var(--magnolia-dark-purp);
-  background-color: white;
+  background-color: var(--magnolia-white);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
