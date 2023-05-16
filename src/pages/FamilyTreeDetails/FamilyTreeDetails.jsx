@@ -15,7 +15,7 @@ const FamilyTreeDetails = ({ user, tree, handleAddRecipe, handleAddMember, handl
         members={tree.members}
         handleDeleteMember={handleDeleteMember} />
       <NewFamilyMember handleAddMember={handleAddMember} />
-      <NewRecipe handleAddRecipe={handleAddRecipe} />
+      {/* <NewRecipe handleAddRecipe={handleAddRecipe} /> */}
       
     </main>
   )
