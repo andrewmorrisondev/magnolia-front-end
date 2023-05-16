@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom'
 // components
 import NewTree from "../../components/NewTree/NewTree"
 
-const ProfileDetails = ({ user, tree, profile, handleAddTree }) => {
-  
-  // console.log(profile.familyTree.length)
+const ProfileDetails = ({ user, tree, profile, profileLoading, handleAddTree }) => {
+  if (profileLoading) {
+    return <h1>Loading profile...</h1>
+  }
+
   return (
     <>
     {

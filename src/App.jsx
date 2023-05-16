@@ -33,6 +33,7 @@ function App() {
   const [user, setUser] = useState(authService.getUser())
   const [recipes, setRecipes] = useState([])
   const [profile, setProfile] = useState({})
+  const [profileLoading, setProfileLoading] = useState(true)
   const [tree, setTree] = useState([])
   const [members, setMembers] = useState([])
   const navigate = useNavigate()
@@ -49,11 +50,11 @@ function App() {
     const fetchProfile = async () => {
       const profileData = await profileService.getProfile(user.profile)
       setProfile(profileData)
+      setProfileLoading(false)
     }
     if (user) {
       fetchProfile()
     }
-    {console.log(profile)}
   }, [user])
 
   useEffect(() => {
@@ -125,13 +126,13 @@ function App() {
   return (
     <>
       <div className="nav-spacer"></div>
-      <NavBar user={user} tree={tree} handleLogout={handleLogout} />
+      <NavBar user={user} profile={profile} tree={tree} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route path="/recipes" 
           element={
             <RecipesList  
-              recipes={recipes} 
+              recipes={recipes}
               handleAddRecipe={handleAddRecipe}
             />}
         />
@@ -192,6 +193,7 @@ function App() {
                 tree={tree}
                 profile={profile}
                 handleAddTree={handleAddTree}
+                profileLoading={profileLoading}
               />
             </ProtectedRoute>
           }
