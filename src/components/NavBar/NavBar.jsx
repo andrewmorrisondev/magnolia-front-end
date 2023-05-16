@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 // css
 import styles from './NavBar.module.css'
 
-const NavBar = ({ user, profile, tree, handleLogout }) => {
+const NavBar = ({ user, profile, tree, handleLogout, hasTree }) => {
 
   const publicLinks = (
     <ul className={styles.left}>
@@ -19,7 +19,7 @@ const NavBar = ({ user, profile, tree, handleLogout }) => {
     <>
       <ul className={styles.left}>
         <li><NavLink to="/"><img src="/src/assets/icons/noun-magnolia-5449337.png"></img></NavLink></li>
-        {(profile?.familyTree?.length > 0) && (
+        {(profile?.familyTree?.length > 0 || hasTree) && (
           <li>
             <NavLink to={`/trees/${tree._id}`}>Family Tree Details</NavLink>
           </li>
