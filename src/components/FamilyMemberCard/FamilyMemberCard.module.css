@@ -5,6 +5,7 @@
 
   height: 150px;
   width: 200px;
+  margin: 20px;
 
   border: 12px solid var(--magnolia-dark-purp);
   border-radius: 10px;
