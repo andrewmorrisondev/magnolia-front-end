@@ -36,6 +36,7 @@ function App() {
   const [profileLoading, setProfileLoading] = useState(true)
   const [tree, setTree] = useState([])
   const [members, setMembers] = useState([])
+  const [hasTree, setHasTree] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -71,6 +72,7 @@ function App() {
   const handleLogout = () => {
     authService.logout()
     setUser(null)
+    setHasTree(false)
     navigate('/')
   }
 
@@ -120,13 +122,14 @@ function App() {
   const handleAddTree = async (treeFormData) => {
     const newTree = await treeService.create(treeFormData)
     setTree(newTree)
+    setHasTree(true)
     setProfile({ ...profile, trees: [profile.familyTree, newTree] })
   }
 
   return (
     <>
       <div className="nav-spacer"></div>
-      <NavBar user={user} profile={profile} tree={tree} handleLogout={handleLogout} />
+      <NavBar user={user} profile={profile} tree={tree} handleLogout={handleLogout} hasTree={hasTree} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route path="/recipes" 
@@ -194,6 +197,7 @@ function App() {
                 profile={profile}
                 handleAddTree={handleAddTree}
                 profileLoading={profileLoading}
+                hasTree={hasTree}
               />
             </ProtectedRoute>
           }
