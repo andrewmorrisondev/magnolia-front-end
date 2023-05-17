@@ -49,9 +49,20 @@ const NewFamilyMember = (props) => {
         <option value="Child">Child</option>
         <option value="Son">Son</option>
         <option value="Daughter">Daughter</option>
-        <option value="Husband">Husband</option>
-        <option value="Wife">Wife</option>
-        <option value="Significant Other">Significant Other</option>
+        
+        {!props.members.some(
+          (member) =>
+            member.relation === "Significant Other" ||
+            member.relation === "Husband" ||
+            member.relation === "Wife"
+        ) && (
+          <>
+            <option value="Significant Other">Significant Other</option>
+            <option value="Husband">Husband</option>
+            <option value="Wife">Wife</option>
+          </>
+        )}
+
         <option value="Grandparent">Grandparent</option>
       </select>
       <button type="submit">SUBMIT</button>
