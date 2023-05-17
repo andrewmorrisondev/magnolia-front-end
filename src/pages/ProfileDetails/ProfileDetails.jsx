@@ -46,10 +46,14 @@ const ProfileDetails = ({ user, tree, profile, profileLoading, handleAddTree, ha
         </div>
 
         <div className={styles.recipeCardContainer}>
-          <p>My recipes:</p>
-          {filteredRecipes.map(recipe => (
-            <RecipeCard key={recipe._id} recipe={recipe} />
-          ))}
+          <h1>My Recipes</h1>
+          {(filteredRecipes.length)
+            ?
+            filteredRecipes.map(recipe => (
+              <RecipeCard key={recipe._id} recipe={recipe} />))
+            :
+            <h2>No Recipes Yet</h2>
+          }
         </div>
       </main>
     </>

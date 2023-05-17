@@ -13,6 +13,9 @@ const NewRecipe = (props) => {
     ingredients: '',
     directions: '',
   })
+
+  const [addedInput, setAddedInput] = useState(['something'])
+
   // const [toggle, setToggle] = useState(false)
 
   // const inputRef = useRef()
@@ -41,9 +44,14 @@ const NewRecipe = (props) => {
 		props.handleAddRecipe(formData)
     setFormData({
       name: '',
-      ingredients: '',
+      ingredients: [],
       directions: '',
     })
+  }
+
+  const handleAddInput = (evt) => {
+    evt.preventDefault()
+    setAddedInput( [...addedInput, ''])
   }
 
   return (  
@@ -60,7 +68,9 @@ const NewRecipe = (props) => {
             required
           />
         <label htmlFor="ingredients-input">Ingredients</label>
-          <IngredientsInput />
+          {addedInput.map((elem, index) => (
+            <IngredientsInput key={index} />
+          ))}
           {/* <input 
             type="text"
             name="ingredients"
@@ -70,6 +80,7 @@ const NewRecipe = (props) => {
             onChange={handleChange} 
             required
           /> */}
+          <button type="button" onClick={handleAddInput}>Add</button>
         <label htmlFor="directions-input">Directions</label>
           <textarea 
             type="text"
@@ -80,7 +91,7 @@ const NewRecipe = (props) => {
             onChange={handleChange}
             required
           />
-        <button type="submit">SUBMIT</button>
+        <button type="submit" onSubmit={handleAddInput}>SUBMIT</button>
       </form>
     </main>
   )

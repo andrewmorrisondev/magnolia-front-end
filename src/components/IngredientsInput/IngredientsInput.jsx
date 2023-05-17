@@ -3,7 +3,11 @@
 const IngredientsInput = (props) => {
   return (  
     <>
-    
+      <input 
+          type="text"
+          name="ingredients"
+
+      />
     </>
   )
 }
