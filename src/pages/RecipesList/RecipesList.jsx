@@ -10,6 +10,7 @@ const RecipesList = (props) => {
     <>
       <main className={styles.container}>
         <div className={styles.formContainer}>
+          <h1>Add a New Recipe</h1>
           <NewRecipe handleAddRecipe={props.handleAddRecipe} />
         </div>
         <div className={styles.recipeCardContainer}>

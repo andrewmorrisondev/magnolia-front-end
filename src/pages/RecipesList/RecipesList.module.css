@@ -5,6 +5,10 @@
 }
 
 .formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
   position: fixed;
   right: 0;
   background-color: var(--magnolia-white);
