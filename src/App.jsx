@@ -83,6 +83,7 @@ function App() {
   const handleAddRecipe = async (recipeFormData) => {
     const newRecipe = await recipeService.create(recipeFormData)
     setRecipes([newRecipe, ...recipes])
+    setProfile({ ...profile, familyRecipes: [...profile.familyRecipes, newRecipe._id ]})
   }
 
   const handleUpdateRecipe = async (recipeFormData) => {

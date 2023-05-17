@@ -1,8 +1,10 @@
 // npm modules
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 // components
 import NewTree from "../../components/NewTree/NewTree"
+import RecipeCard from '../../components/RecipeCard/RecipeCard'
 
 // pages
 import Loading from '../Loading/Loading'
@@ -11,53 +13,56 @@ import Loading from '../Loading/Loading'
 import styles from './ProfileDetails.module.css'
 
 const ProfileDetails = ({ user, tree, profile, profileLoading, handleAddTree, hasTree, handleAddMember, recipes }) => {
+  const [filteredRecipes, setFilteredRecipes] = useState([])
 
-  const filteredRecipes = recipes.filter(recipe =>
-    profile.familyRecipes.includes(recipe._id)
-  )
-
+  useEffect(() => {
+    setFilteredRecipes(recipes.filter(recipe => profile.familyRecipes.includes(recipe._id)))
+  }, [recipes, profile])
   if (profileLoading) {
     return <Loading />
   }
 
   return (
     <>
-    {
-      hasTree
-      ?
-      (
-        !profile.familyTree.length
+      <main className={styles.container}>
+        <div className={styles.profileContainer}>
+          <h1>{profile.name}</h1>
+          {
+        hasTree
         ?
-        <Link to={`/trees/${tree._id}`}>MyTree</Link>
+        (
+          !profile.familyTree.length
+          ?
+          <Link to={`/trees/${tree._id}`}>MyTree</Link>
+          :
+          <NewTree 
+            handleAddTree={handleAddTree}
+            tree={tree}
+            handleAddMember={handleAddMember}
+          />
+        )
         :
-        <NewTree 
-          handleAddTree={handleAddTree}
-          tree={tree}
-          handleAddMember={handleAddMember}
-        />
-      )
-      :
-      (
-        !profile.familyTree.length
-        ?
-        <NewTree 
-          handleAddTree={handleAddTree}
-          tree={tree}
-          handleAddMember={handleAddMember}
-        />
-        :
-        <Link to={`/trees/${tree._id}`}>MyTree</Link>
-      )
-    }
-    <h1>{profile.name}</h1>
-    <h2>My recipes:</h2>
-    <ul>
-      {filteredRecipes.map(recipe => {
-        return <li>{recipe.name}</li>
-      })}
-    </ul>
+        (
+          !profile.familyTree.length
+          ?
+          <NewTree 
+            handleAddTree={handleAddTree}
+            tree={tree}
+            handleAddMember={handleAddMember}
+          />
+          :
+          <Link to={`/trees/${tree._id}`}>MyTree</Link>
+        )
+      }
+        </div>
+        <div className={styles.recipeCardContainer}>
+          <p>My recipes:</p>
+          {filteredRecipes.map(recipe => (
+            <RecipeCard key={recipe._id} recipe={recipe} />
+          ))}
+        </div>
+      </main>
     </>
-
   )
 }
 

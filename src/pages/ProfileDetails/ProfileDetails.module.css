@@ -1,0 +1,25 @@
+.container {
+  gap: 14px;
+  width: 100%;
+  padding: 21px;
+}
+
+.recipeCardContainer {
+  margin-right: 14px;
+}
+
+.profileContainer {
+  position: fixed;
+  right: 0;
+  background-color: var(--magnolia-white);
+  height: 100%;
+  width: 25%;
+}
+
+.profileContainer > h1 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
