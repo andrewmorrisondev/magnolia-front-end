@@ -10,41 +10,23 @@ import styles from './NewRecipe.module.css'
 const NewRecipe = (props) => {
   const [formData, setFormData] = useState({
     name: '',
-    ingredients: '',
+    ingredients: [],
     directions: '',
   })
+  const [ingredients, setIngredients] = useState([])
 
   const [addedInput, setAddedInput] = useState(['something'])
-
-  // const [toggle, setToggle] = useState(false)
-
-  // const inputRef = useRef()
 
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
-
-  // const handleAddField = (evt) => {
-  //   evt.preventDefault()
-  //   const data = [...formData]
-  //   data.push({
-  //     label: inputRef.current.value || 'label',
-  //   })
-  //   setFormData(data)
-  //   setToggle(false)
-  // }
-
-  // const addBtnClick = (evt) => {
-  //   evt.preventDefault()
-  //   setToggle(true)
-  // }
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
 		props.handleAddRecipe(formData)
     setFormData({
       name: '',
-      ingredients: [],
+      ingredients: '',
       directions: '',
     })
   }
@@ -52,6 +34,7 @@ const NewRecipe = (props) => {
   const handleAddInput = (evt) => {
     evt.preventDefault()
     setAddedInput( [...addedInput, ''])
+    setIngredients({...formData.ingredients, [evt.target.name]: evt.target.value})
   }
 
   return (  
@@ -69,7 +52,7 @@ const NewRecipe = (props) => {
           />
         <label htmlFor="ingredients-input">Ingredients</label>
           {addedInput.map((elem, index) => (
-            <IngredientsInput key={index} />
+            <IngredientsInput key={index} formData={formData} handleChange={handleChange} />
           ))}
           {/* <input 
             type="text"
