@@ -15,13 +15,9 @@ import styles from './ProfileDetails.module.css'
 const ProfileDetails = ({ user, tree, profile, profileLoading, handleAddTree, hasTree, handleAddMember, recipes }) => {
   const [filteredRecipes, setFilteredRecipes] = useState([])
 
-  console.log(recipes)
-  console.log(filteredRecipes)
-
   useEffect(() => {
     setFilteredRecipes(recipes.filter(recipe => profile.familyRecipes.includes(recipe._id)))
   }, [recipes, profile])
-    // recipes.filter(recipe => profile.familyRecipes.includes(recipe._id))}
   if (profileLoading) {
     return <Loading />
   }
