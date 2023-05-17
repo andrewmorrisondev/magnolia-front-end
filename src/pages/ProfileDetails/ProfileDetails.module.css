@@ -20,6 +20,10 @@
   text-align: center;
 }
 
+.profileContainer > a {
+  text-decoration: underline;
+}
+
 p {
   text-align: center;
 }
