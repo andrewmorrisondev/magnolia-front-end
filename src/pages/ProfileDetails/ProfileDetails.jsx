@@ -30,7 +30,9 @@ const ProfileDetails = ({ user, tree, profile, profileLoading, handleAddTree, ha
           {
             (hasTree == !profile.familyTree.length)
             ?
-            <Link to={`/trees/${tree._id}`}>MyTree</Link>
+            <Link to={`/trees/${tree._id}`}>
+              <h4>The {tree.name} Family</h4>
+            </Link>
             :
             <NewTree 
               handleAddTree={handleAddTree}
@@ -38,7 +40,11 @@ const ProfileDetails = ({ user, tree, profile, profileLoading, handleAddTree, ha
               handleAddMember={handleAddMember}
             />
           }
+          <div className={styles.photoContainer}>
+            <img className={styles.photo} src={profile.photo} />
+          </div>
         </div>
+
         <div className={styles.recipeCardContainer}>
           <p>My recipes:</p>
           {filteredRecipes.map(recipe => (
