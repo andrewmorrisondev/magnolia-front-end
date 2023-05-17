@@ -8,7 +8,10 @@ const NavBar = ({ user, profile, tree, handleLogout, hasTree }) => {
 
   const publicLinks = (
     <ul className={styles.left}>
-      <li><NavLink to="/"><img src="src/assets/icons/noun-magnolia-5449337.png"></img></NavLink></li>
+      <li>
+        <NavLink className={styles.navImage} to="/">
+          <img src="src/assets/icons/noun-magnolia-5449337.png" />
+        </NavLink></li>
       <li><NavLink to="/auth/login">Log In</NavLink></li>
       <li><NavLink to="/auth/signup">Sign Up</NavLink></li>
       <li><NavLink to="/recipes">Recipes List</NavLink></li>

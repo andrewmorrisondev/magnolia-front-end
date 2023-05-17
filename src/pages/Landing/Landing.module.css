@@ -8,3 +8,24 @@
   height: 200px;
   width: 200px;
 }
+
+.container img:hover {
+  transform: scale(1.1, 1.1);
+  animation-name: icon;
+  animation-duration: 0.5s;
+}
+
+.container img:not(:hover) {
+  animation-name: iconOff;
+  animation-duration: 0.5s;
+}
+
+@keyframes icon {
+  from {transform: scale(1, 1);}
+  to {transform: scale(1.1, 1.1);}
+}
+
+@keyframes iconOff {
+  from {transform: scale(1.1, 1.1);}
+  to {transform: scale(1, 1);}
+}
