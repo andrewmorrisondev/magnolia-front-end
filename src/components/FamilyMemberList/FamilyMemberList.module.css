@@ -9,6 +9,26 @@
   justify-content: center;
 }
 
+.siblingsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.myGenerationContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: -42px;
+}
+
+.significantOthersContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: -42px;
+}
+
 .meContainer {
   display: inline-flex;
   flex-direction: row;
