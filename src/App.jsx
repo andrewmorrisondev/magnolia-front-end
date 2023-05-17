@@ -73,6 +73,7 @@ function App() {
     authService.logout()
     setUser(null)
     setHasTree(false)
+    setTree([])
     navigate('/')
   }
 
@@ -125,7 +126,7 @@ function App() {
     const newTree = await treeService.create(treeFormData)
     setTree(newTree)
     setHasTree(true)
-    setProfile({ ...profile, trees: [profile.familyTree, newTree] })
+    setProfile({ ...profile, trees: newTree })
   }
 
   return (
