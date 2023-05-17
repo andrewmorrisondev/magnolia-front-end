@@ -28,29 +28,16 @@ const ProfileDetails = ({ user, tree, profile, profileLoading, handleAddTree, ha
         <div className={styles.profileContainer}>
           <h1>{profile.name}</h1>
           {
-          hasTree
-          ?
-          (!profile.familyTree.length ?
-            <Link to={`/trees/${tree._id}`}>MyTree</Link>
-            :
-            <NewTree 
-              handleAddTree={handleAddTree}
-              tree={tree}
-              handleAddMember={handleAddMember}
-            />
-          )
-          :
-          (!profile.familyTree.length
+            (hasTree == !profile.familyTree.length)
             ?
+            <Link to={`/trees/${tree._id}`}>MyTree</Link>
+            :
             <NewTree 
               handleAddTree={handleAddTree}
               tree={tree}
               handleAddMember={handleAddMember}
             />
-            :
-            <Link to={`/trees/${tree._id}`}>MyTree</Link>
-          )
-        }
+          }
         </div>
         <div className={styles.recipeCardContainer}>
           <p>My recipes:</p>
