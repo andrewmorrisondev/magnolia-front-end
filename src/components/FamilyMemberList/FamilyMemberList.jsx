@@ -45,7 +45,7 @@ const FamilyMembersList = ({tree, members, setMembers, handleDeleteMember}) => {
           ))}
       </div>
 
-      <div className={`${styles.myGenerationContainer} ${significantOthers.length === 0 ? styles.noSo : ''}`}>
+      <div className={styles.myGenerationContainer}>
         <div className={styles.siblingsLContainer}>
           {siblingsL.map(sibling => (
             <FamilyMemberCard 
@@ -66,7 +66,7 @@ const FamilyMembersList = ({tree, members, setMembers, handleDeleteMember}) => {
           />
         </div>
 
-        <div className={styles.significantOthersContainer}>
+        <div className={`${styles.significantOthersContainer} ${significantOthers.length === 0 ? '' : styles.noSo}`}>
           {significantOthers.map(significantOther => (
             <FamilyMemberCard
               key={significantOther._id}
