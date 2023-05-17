@@ -12,9 +12,27 @@ const FamilyMembersList = ({tree, members, setMembers, handleDeleteMember}) => {
   const siblings = members.filter(member => member.relation === 'Sibling')
   const significantOthers = members.filter(member => member.relation === 'Significant Other')
   const parents = members.filter(member => member.relation === 'Parent/Guardian')
+  const grandparents = members.filter(member => member.relation === 'Grandparent')
+
+  const siblingsL = siblings.filter((sibling, idx) => idx % 2 === 0)
+  const siblingsR = siblings.filter((sibling, idx) => idx % 2 !== 0)
 
   return (
+
     <div className={styles.familyMemberList}>
+
+      <div className={styles.grandparentsContainer}>
+        {grandparents.map(grandparent => (
+          <FamilyMemberCard
+            key={grandparent._id}
+            grandparent={grandparent}
+            tree={tree}
+            member={grandparent}
+            handleDeleteMember={handleDeleteMember}
+          />
+        ))}
+      </div>
+
       <div className={styles.parentsContainer}>
         {parents.map(parent => (
           <FamilyMemberCard 
@@ -28,8 +46,8 @@ const FamilyMembersList = ({tree, members, setMembers, handleDeleteMember}) => {
       </div>
 
       <div className={styles.myGenerationContainer}>
-        <div className={styles.siblingsContainer}>
-          {siblings.map(sibling => (
+        <div className={styles.siblingsLContainer}>
+          {siblingsL.map(sibling => (
             <FamilyMemberCard 
               key={sibling._id}
               sibling={sibling}
@@ -56,6 +74,18 @@ const FamilyMembersList = ({tree, members, setMembers, handleDeleteMember}) => {
               tree={tree}
               member={significantOther}
               handleDeleteMember={handleDeleteMember}
+            />
+          ))}
+        </div>
+
+        <div className={styles.siblingsRContainer}>
+          {siblingsR.map(sibling => (
+            <FamilyMemberCard 
+              key={sibling._id}
+              sibling={sibling}
+              tree={tree}
+              member={sibling}
+              handleDeleteMember={handleDeleteMember} 
             />
           ))}
         </div>
