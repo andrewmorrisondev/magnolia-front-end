@@ -3,40 +3,73 @@
   flex-direction: column;
 }
 
+.grandparentsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.grandparentsContainer > div {
+  border: 12px solid white;
+  border-radius: 10px;
+}
+
 .parentsContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
+.parentsContainer > div {
+  border: 12px solid blue;
+  border-radius: 10px;
+}
 
-.siblingsContainer {
+.siblingsLContainer, .siblingsRContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
+}
+.siblingsLContainer > div, .siblingsRContainer > div {
+  border: 12px solid red;
+  border-radius: 10px; 
 }
 
 .myGenerationContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-left: -42px;
 }
 
 .significantOthersContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   margin-left: -42px;
+}
+.significantOthersContainer > div {
+  border: 12px solid pink;
+  border-radius: 10px;
 }
 
 .meContainer {
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
+
+}
+.meContainer > div {
+  border: 12px solid var(--magnolia-dark-purp);
+  border-radius: 10px;
 }
 
 .childrenContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+.childrenContainer > div {
+  border: 12px solid white;
+  border-radius: 10px;
 }
