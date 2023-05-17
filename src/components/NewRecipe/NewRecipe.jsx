@@ -26,7 +26,7 @@ const NewRecipe = (props) => {
 		props.handleAddRecipe(formData)
     setFormData({
       name: '',
-      ingredients: '',
+      ingredients: [],
       directions: '',
     })
   }
@@ -35,6 +35,12 @@ const NewRecipe = (props) => {
     evt.preventDefault()
     setAddedInput( [...addedInput, ''])
     setIngredients({...formData.ingredients, [evt.target.name]: evt.target.value})
+  }
+
+  const handleIngredientChange = (index, value) => {
+    const updatedIngredients = [...formData.ingredients]
+    updatedIngredients[index] = value
+    setFormData({ ...formData, ingredients: updatedIngredients })
   }
 
   return (  
@@ -52,7 +58,12 @@ const NewRecipe = (props) => {
           />
         <label htmlFor="ingredients-input">Ingredients</label>
           {addedInput.map((elem, index) => (
-            <IngredientsInput key={index} formData={formData} handleChange={handleChange} />
+            <IngredientsInput 
+              key={index} 
+              index={index} 
+              formData={formData} 
+              handleChange={(evt) => handleIngredientChange(index, evt.target.value)}
+            />
           ))}
           {/* <input 
             type="text"
