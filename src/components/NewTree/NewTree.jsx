@@ -8,11 +8,16 @@ const NewTree = (props) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = async (evt) => {
     evt.preventDefault()
-    props.handleAddTree(formData)
     setFormData({ name: '' })
-    props.handleAddMember({})
+    console.log(props.tree._id)
+    try {
+      await props.handleAddTree(formData)
+    }
+    catch (err) {
+      console.log(err)
+    }
   }
 
   return (

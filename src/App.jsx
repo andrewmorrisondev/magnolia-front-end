@@ -101,10 +101,14 @@ function App() {
   }
 
   const handleAddMember = async (memberFormData) => {
-    const newMember = await treeService.createMember(memberFormData, tree._id)
-    const updatedTree = await treeService.show(tree._id)
-    setTree(updatedTree)
-    setMembers([...members, newMember])
+    try {
+      const newMember = await treeService.createMember(memberFormData, tree._id)
+      const updatedTree = await treeService.show(tree._id)
+      setTree(updatedTree)
+      setMembers([...members, newMember])
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   const handleDeleteMember = async (memberId, treeId) => {
