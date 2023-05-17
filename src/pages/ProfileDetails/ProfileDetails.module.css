@@ -1,20 +1,22 @@
 .container {
   gap: 14px;
   width: 100%;
-  padding: 21px;
+  padding: 15px;
 }
 
 .recipeCardContainer {
   margin-right: 14px;
-  width: 75%;
+  width: 70%;
 }
 
 .profileContainer {
   position: fixed;
   right: 0;
-  background-color: var(--magnolia-white);
+  background-color: var(--magnolia-pink);
   height: 100%;
-  width: 25%;
+  width: 30%;
+  margin-top: -45px;
+  padding-top: 45px;
 }
 
 .profileContainer > h1 {
@@ -25,13 +27,18 @@
   text-decoration: underline;
 }
 
-h1, h4 {
+h1, h2, h3, h4 {
   text-align: center;
 }
 
-h4 {
-  margin-top: 25%;
+h3 {
+  margin-top: 15%;
   font-size: 1.5rem;
+}
+
+h4 {
+  margin: 10% 0;
+  font-size: 1.25rem;
 }
 
 .photoContainer {
@@ -40,7 +47,7 @@ h4 {
 }
 
 .photo {
-  margin-top: 30%;
+  margin-top: 20%;
   width: 50%;
   height: 50%;
   border-radius: 50%;

@@ -52,7 +52,7 @@ const ProfileDetails = ({ user, tree, profile, profileLoading, handleAddTree, ha
             filteredRecipes.map(recipe => (
               <RecipeCard key={recipe._id} recipe={recipe} />))
             :
-            <h2>No Recipes Yet</h2>
+            <h3>No Recipes Yet</h3>
           }
         </div>
       </main>
