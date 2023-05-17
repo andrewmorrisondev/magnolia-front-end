@@ -1,6 +1,9 @@
 // npm modules
 import { useState } from "react"
 
+// components
+import IngredientsInput from "../IngredientsInput/IngredientsInput"
+
 // css
 import styles from './NewRecipe.module.css'
 
@@ -10,10 +13,28 @@ const NewRecipe = (props) => {
     ingredients: '',
     directions: '',
   })
+  // const [toggle, setToggle] = useState(false)
+
+  // const inputRef = useRef()
 
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
+
+  // const handleAddField = (evt) => {
+  //   evt.preventDefault()
+  //   const data = [...formData]
+  //   data.push({
+  //     label: inputRef.current.value || 'label',
+  //   })
+  //   setFormData(data)
+  //   setToggle(false)
+  // }
+
+  // const addBtnClick = (evt) => {
+  //   evt.preventDefault()
+  //   setToggle(true)
+  // }
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
@@ -39,7 +60,8 @@ const NewRecipe = (props) => {
             required
           />
         <label htmlFor="ingredients-input">Ingredients</label>
-          <textarea 
+          <IngredientsInput />
+          {/* <input 
             type="text"
             name="ingredients"
             id="ingredients-input"
@@ -47,7 +69,7 @@ const NewRecipe = (props) => {
             placeholder="Pasta, Sauce, Meatballs"
             onChange={handleChange} 
             required
-          />
+          /> */}
         <label htmlFor="directions-input">Directions</label>
           <textarea 
             type="text"
