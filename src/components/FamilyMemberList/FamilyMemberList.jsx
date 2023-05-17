@@ -8,10 +8,10 @@ import FamilyMemberCard from "../FamilyMemberCard/FamilyMemberCard"
 import styles from './FamilyMemberList.module.css'
 
 const FamilyMembersList = ({tree, members, setMembers, handleDeleteMember}) => {
-  const children = members.filter(member => member.relation === 'Child')
-  const siblings = members.filter(member => member.relation === 'Sibling')
-  const significantOthers = members.filter(member => member.relation === 'Significant Other')
-  const parents = members.filter(member => member.relation === 'Parent/Guardian')
+  const children = members.filter(member => member.relation === 'Child' || member.relation === 'Son' || member.relation === 'Daughter')
+  const siblings = members.filter(member => member.relation === 'Sibling' || member.relation === 'Brother' || member.relation === 'Sister')
+  const significantOthers = members.filter(member => member.relation === 'Significant Other' || member.relation === 'Husband' || member.relation === 'Wife')
+  const parents = members.filter(member => member.relation === 'Parent/Guardian' || member.relation === 'Mother' || member.relation === 'Father')
   const grandparents = members.filter(member => member.relation === 'Grandparent')
 
   const siblingsL = siblings.filter((sibling, idx) => idx % 2 === 0)

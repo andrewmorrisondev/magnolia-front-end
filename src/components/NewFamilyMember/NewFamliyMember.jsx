@@ -44,7 +44,13 @@ const NewFamilyMember = (props) => {
       >
         <option value="Parent/Guardian">Parent/Guardian</option>
         <option value="Sibling">Sibling</option>
+        <option value="Brother">Brother</option>
+        <option value="Sister">Sister</option>
         <option value="Child">Child</option>
+        <option value="Son">Son</option>
+        <option value="Daughter">Daughter</option>
+        <option value="Husband">Husband</option>
+        <option value="Wife">Wife</option>
         <option value="Significant Other">Significant Other</option>
         <option value="Grandparent">Grandparent</option>
       </select>
