@@ -160,6 +160,8 @@ function App() {
           element={
             <EditRecipe 
               user={user} 
+              profile={profile}
+              recipes={recipes}
               handleUpdateRecipe={handleUpdateRecipe}
             />
           }
