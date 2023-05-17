@@ -26,7 +26,7 @@ const NewRecipe = (props) => {
 		props.handleAddRecipe(formData)
     setFormData({
       name: '',
-      ingredients: [],
+      ingredients: '',
       directions: '',
     })
   }

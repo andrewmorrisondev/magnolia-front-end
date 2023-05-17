@@ -7,7 +7,7 @@ const IngredientsInput = (props) => {
         type="text"
         name="ingredients"
         id="ingredients-input"
-        value={props.formData.ingredients[props.key]}
+        value={props.formData.ingredients[props.index]}
         placeholder="Pasta, Sauce, Meatballs"
         onChange={props.handleChange} 
         required

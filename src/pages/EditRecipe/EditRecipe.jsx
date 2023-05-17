@@ -2,20 +2,37 @@
 import { useState } from "react"
 import { useLocation } from "react-router-dom"
 
+// components
+import IngredientsInput from "../../components/IngredientsInput/IngredientsInput"
+
 // css
 import styles from './EditRecipe.module.css'
 
 const EditRecipe = (props) => {
   const { state } = useLocation()
   const [formData, setFormData] = useState(state)
+  const [addedInput, setAddedInput] = useState(['something'])
+  const [ingredients, setIngredients] = useState([])
 
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
+  const handleIngredientChange = (index, value) => {
+    const updatedIngredients = [...formData.ingredients]
+    updatedIngredients[index] = value
+    setFormData({ ...formData, ingredients: updatedIngredients })
+  }
+
   const handleSubmit = (evt) => {
     evt.preventDefault()
     props.handleUpdateRecipe(formData)
+  }
+
+  const handleAddInput = (evt) => {
+    evt.preventDefault()
+    setAddedInput( [...addedInput, ''])
+    setIngredients({...formData.ingredients, [evt.target.name]: evt.target.value})
   }
 
   return (  
@@ -32,14 +49,14 @@ const EditRecipe = (props) => {
           onChange={handleChange} 
         />
         <label htmlFor="ingredients-input">Ingredients</label>
-        <textarea 
-          type="text"
-          name="ingredients"
-          id="ingredients-input"
-          value={formData.ingredients}
-          placeholder="Ingredients"
-          onChange={handleChange} 
-        />
+        {formData.ingredients.map((elem, index) => (
+          <IngredientsInput 
+            key={index} 
+            index={index} 
+            formData={formData}
+            handleChange={(evt) => handleIngredientChange(index, evt.target.value)}
+          />
+        ))}
         <label htmlFor="directions-input">Directions</label>
         <textarea 
           type="text"
