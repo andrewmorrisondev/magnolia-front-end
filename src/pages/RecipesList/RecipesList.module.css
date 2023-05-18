@@ -1,7 +1,11 @@
 .container {
   gap: 14px;
   width: 100%;
-  padding: 21px;
+  padding: 20px;
+}
+
+.recipeCardContainer {
+  width: 68%;
 }
 
 .formContainer {
@@ -15,10 +19,4 @@
   height: 100%;
   width: 30%;
   margin-top: -45px;
-  padding-top: 45px;
-}
-
-.recipeCardContainer {
-  display: block;
-  width: 68%;
 }
