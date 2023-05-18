@@ -28,6 +28,7 @@ const NewFamilyMember = (props) => {
           type="text"
           name="name"
           id="name-input"
+          autoComplete="off"
           value={formData.name}
           placeholder="Billy Bob"
           onChange={handleChange} 

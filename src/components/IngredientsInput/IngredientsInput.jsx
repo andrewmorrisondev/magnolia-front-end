@@ -13,6 +13,7 @@ const IngredientsInput = (props) => {
         value={props.formData.ingredients[props.index]}
         placeholder={ingredientsPlaceholders[props.index % ingredientsPlaceholders.length]}
         onChange={props.handleIngredientChange} 
+        autoComplete="off"
       />
     </>
   )
