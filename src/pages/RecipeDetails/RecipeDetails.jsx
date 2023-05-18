@@ -48,6 +48,9 @@ if (!recipe) return <h1>Loading... </h1>
         })}
         <h2>Directions</h2>
         <p>{recipe.directions}</p>
+        {recipe.photo &&
+          <img src={recipe.photo} alt="a photo of this recipe" />
+        }
       </article>
     </main>
   )

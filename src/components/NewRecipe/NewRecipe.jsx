@@ -1,5 +1,5 @@
 // npm modules
-import { useState } from "react"
+import { useState, useRef } from 'react'
 
 // components
 import IngredientsInput from "../IngredientsInput/IngredientsInput"
@@ -13,9 +13,12 @@ const NewRecipe = (props) => {
     ingredients: [],
     directions: '',
   })
+
   const [ingredients, setIngredients] = useState([''])
 
   const [addedInput, setAddedInput] = useState(['something'])
+  const [photoData, setPhotoData] = useState({ photo: null })
+  const imgInputRef = useRef(null)
 
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
@@ -23,11 +26,20 @@ const NewRecipe = (props) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
-		props.handleAddRecipe(formData)
+
+    const formDataWithPhoto = {
+      name: formData.name,
+      ingredients: formData.ingredients,
+      directions: formData.directions,
+      photo: photoData.photo,
+    }
+
+		props.handleAddRecipe(formDataWithPhoto)
     setFormData({
       name: '',
       ingredients: '',
       directions: '',
+      photo: null,
     })
   }
 
@@ -65,6 +77,33 @@ const NewRecipe = (props) => {
     setFormData({ ...formData, ingredients: updatedIngredients })
   }
 
+  const handleChangePhoto = evt => {
+    const file = evt.target.files[0]
+    let isFileInvalid = false
+    let errMsg = ""
+    const validFormats = ['gif', 'jpeg', 'jpg', 'png', 'svg', 'webp']
+    const photoFormat = file.name.split('.').at(-1)
+
+    // cloudinary supports files up to 10.4MB each as of May 2023
+    if (file.size >= 10485760) {
+      errMsg = "Image must be smaller than 10.4MB"
+      isFileInvalid = true
+    }
+    if (!validFormats.includes(photoFormat)) {
+      errMsg = "Image must be in gif, jpeg/jpg, png, svg, or webp format"
+      isFileInvalid = true
+    }
+    
+    if (isFileInvalid) {
+      setMessage(errMsg)
+      imgInputRef.current.value = null
+      return
+    }
+
+    const photoURL = URL.createObjectURL(file)
+    setPhotoData({ photo: photoURL })
+  }
+
   return (  
     <main>
       <form onSubmit={handleSubmit} className={styles.newRecipeForm}>
@@ -73,7 +112,7 @@ const NewRecipe = (props) => {
             type="text"
             name="name"
             id="name-input"
-            value={formData.name}
+            value={formData.name || ''}
             placeholder="Mom's Spaghetti"
             onChange={handleChange} 
             required
@@ -101,6 +140,14 @@ const NewRecipe = (props) => {
             onChange={handleChange}
             required
           />
+          <label className={styles.label}>Add Photo
+          <input 
+            type="file" 
+            name="photo" 
+            onChange={handleChangePhoto}
+            ref={imgInputRef}
+          />
+        </label>
         <button type="submit" onSubmit={handleAddInput}>SUBMIT</button>
       </form>
     </main>
