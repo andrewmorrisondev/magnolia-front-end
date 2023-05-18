@@ -29,6 +29,7 @@ const NewTree = (props) => {
         value={formData.name}
         placeholder="My Family Tree"
         onChange={handleChange}
+        autoComplete="off"
       />
       <button type="submit">Submit</button>
     </form>

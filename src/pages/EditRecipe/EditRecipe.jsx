@@ -59,6 +59,7 @@ const EditRecipe = (props) => {
           value={formData.name}
           placeholder="Name"
           onChange={handleChange} 
+          autoComplete="off"
         />
         <label htmlFor="ingredients-input">Ingredients</label>
         {addedInput.map((elem, index) => (

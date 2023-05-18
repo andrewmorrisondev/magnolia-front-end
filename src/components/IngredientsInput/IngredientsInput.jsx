@@ -8,7 +8,8 @@ const IngredientsInput = (props) => {
         id="ingredients-input"
         value={props.formData.ingredients[props.index]}
         placeholder="Pasta, Sauce, Meatballs"
-        onChange={props.handleIngredientChange} 
+        onChange={props.handleIngredientChange}
+        autoComplete="off"
       />
     </>
   )
