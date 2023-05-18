@@ -45,12 +45,8 @@ const NewRecipe = (props) => {
 
   const handleAddInput = (evt) => {
     evt.preventDefault()
-    const newIngredient = { id: Date.now(), value: '' }
-    setAddedInput([...addedInput, newIngredient])
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      ingredients: [...prevFormData.ingredients, newIngredient],
-    }))
+    setAddedInput( [ ...addedInput, ''])
+    setIngredients({ ...formData.ingredients, [evt.target.name]: evt.target.value})
   }
 
   const handleDeleteInput = (index) => {
