@@ -21,6 +21,7 @@
 html {
   --magnolia-dark-purp: #643843;
   --magnolia-light-purp: #99627A;
+  --magnolia-purp: #BAAAAE;
   --magnolia-pink: #ddc8d1;
   --magnolia-white: #f1eaea;
   --magnolia-mauve: rosybrown;
@@ -68,7 +69,7 @@ form {
   align-items: center;
 }
 ::placeholder {
-  color: var(--magnolia-dark-purp);
+  color: var(--magnolia-purp);
 }
 
 input {
@@ -87,16 +88,16 @@ textarea {
   margin-left: 10px;
 }
 
+select {
+  background-color: var(--magnolia-white);
+  border: none;
+}
+
 button {
-  cursor: pointer;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 5px;
-  font-size: 14px;
-  font-weight: 500;
-  background: none;
-  margin-left: 7px;
+  height: 30px;
+  border: 1px solid var(--magnolia-dark-purp);
   border-radius: 5px;
-  text-align: center;
-  color: black;
+  color: var(--magnolia-dark-purp);
+  background-color: var(--magnolia-pink);
+  cursor: pointer;
 }

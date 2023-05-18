@@ -4,17 +4,20 @@
   padding: 21px;
 }
 
+.sideBar {
+  right: 0;
+  position: fixed;
+  height: 100%;
+  margin-top: -45px;
+  background-color: var(--magnolia-pink);
+  overflow-y: auto;
+  width: 300px;
+}
+
 .formContainer {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  text-align: center;
-  position: fixed;
-  right: 0;
-  background-color: var(--magnolia-pink);
-  height: 100%;
-  width: 30%;
-  margin-top: -45px;
+  padding: 15px;
 }
 
 .familyMembersContainer {

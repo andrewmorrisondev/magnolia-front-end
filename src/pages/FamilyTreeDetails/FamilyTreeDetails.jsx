@@ -9,15 +9,15 @@ const FamilyTreeDetails = ({ user, tree, setMembers, handleAddMember, handleDele
 
   return (  
     <main className={styles.container}>
-      {console.log(tree)}
-      <div className={styles.formContainer}>
-        <h1>{user.name}'s Family Tree</h1>
-        <h2>{tree.name}</h2>
-        <NewFamilyMember 
-          handleAddMember={handleAddMember}
-          setMembers={setMembers}
-          members={tree.members}
-        />
+      <div className={styles.sideBar}>
+        <div className={styles.formContainer}>
+          <h1>{tree.name} Family Tree</h1>
+          <NewFamilyMember 
+            handleAddMember={handleAddMember}
+            setMembers={setMembers}
+            members={tree.members}
+          />
+        </div>
       </div>
       <div className={styles.familyMembersContainer}>
         <FamilyMembersList 

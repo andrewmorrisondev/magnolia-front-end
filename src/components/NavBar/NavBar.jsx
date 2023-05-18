@@ -34,7 +34,6 @@ const NavBar = ({ user, profile, tree, handleLogout, hasTree }) => {
         {user && 
           <li><NavLink to={`/profiles/${user.profile}`}>My Profile</NavLink></li>
         }
-        <li><NavLink to="/auth/change-password">Change Password</NavLink></li>
         <li><NavLink to="" onClick={handleLogout}>LOG OUT</NavLink></li>
       </ul>
     </>
@@ -43,7 +42,6 @@ const NavBar = ({ user, profile, tree, handleLogout, hasTree }) => {
   return (
     <nav className={styles.container}>
         {user ? protectedLinks : publicLinks}
-
     </nav>
   )
 }

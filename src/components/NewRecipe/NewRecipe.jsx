@@ -70,13 +70,13 @@ const NewRecipe = (props) => {
           />
         <label htmlFor="ingredients-input">Ingredients</label>
           {addedInput.map((elem, index) => (
-            <div key={index}>
-            <IngredientsInput 
-              key={index} 
-              index={index} 
-              formData={formData} 
-              handleIngredientChange={(evt) => handleIngredientChange(index, evt.target.value)}
-            />
+            <div key={index} className={styles.ingredientsInput}>
+              <IngredientsInput 
+                key={index} 
+                index={index} 
+                formData={formData} 
+                handleIngredientChange={(evt) => handleIngredientChange(index, evt.target.value)}
+              />
               <button type="button" onClick={() => handleDeleteInput(index)}>X</button>
             </div>
           ))}

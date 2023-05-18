@@ -8,13 +8,21 @@
   width: 68%;
 }
 
-.profileContainer {
-  position: fixed;
+.sideBar {
   right: 0;
-  background-color: var(--magnolia-pink);
+  position: fixed;
   height: 100%;
-  width: 30%;
   margin-top: -45px;
+  background-color: var(--magnolia-pink);
+  overflow-y: auto;
+  width: 300px;
+}
+
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  margin-bottom: 60px;
 }
 
 .profileContainer > h1 {
