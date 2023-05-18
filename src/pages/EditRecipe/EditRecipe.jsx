@@ -61,8 +61,8 @@ const EditRecipe = (props) => {
           onChange={handleChange} 
         />
         <label htmlFor="ingredients-input">Ingredients</label>
-        {addedInput.ingredients.map((elem, index) => (
-          <>
+        {addedInput.map((elem, index) => (
+            <div key={index}>
             <IngredientsInput 
               key={index} 
               index={index} 
@@ -70,9 +70,9 @@ const EditRecipe = (props) => {
               handleChange={(evt) => handleIngredientChange(index, evt.target.value)}
             />
               <button type="button" onClick={() => handleDeleteInput(index)}>X</button>
-          </>
-        ))}
-        <button type="button" onClick={handleAddInput}>Add</button>
+            </div>
+          ))}
+          <button type="button" onClick={handleAddInput}>Add</button>
         <label htmlFor="directions-input">Directions</label>
         <textarea 
           type="text"
