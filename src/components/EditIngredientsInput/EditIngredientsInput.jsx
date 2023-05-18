@@ -1,4 +1,4 @@
-const IngredientsInput = (props) => {
+const EditIngredientsInput = (props) => {
   return (  
     <>
       <input 
@@ -7,10 +7,10 @@ const IngredientsInput = (props) => {
         id="ingredients-input"
         value={props.formData.ingredients[props.index]}
         placeholder="Pasta, Sauce, Meatballs"
-        onChange={props.handleIngredientChange} 
+        onChange={props.handleIngredientChange}
       />
     </>
   )
 }
 
-export default IngredientsInput
+export default EditIngredientsInput
