@@ -52,7 +52,10 @@ const ProfileDetails = ({ user, tree, profile, profileLoading, handleAddTree, ha
             filteredRecipes.map(recipe => (
               <RecipeCard key={recipe._id} recipe={recipe} />))
             :
-            <h3>No Recipes Yet</h3>
+            <div className={styles.loadingContainer}>
+              <img className={styles.loadingImage} src="/src/assets/icons/noun-waiting-1057935.png" />
+              <h3>No Recipes Yet</h3>
+            </div>
           }
         </div>
       </main>
