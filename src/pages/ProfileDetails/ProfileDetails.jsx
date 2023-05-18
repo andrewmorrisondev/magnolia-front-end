@@ -41,7 +41,7 @@ const ProfileDetails = ({ tree, profile, profileLoading, handleAddTree, hasTree,
                 handleAddMember={handleAddMember}
               />
             }
-            <NavLink to="/auth/change-password">Change Password</NavLink>
+            <NavLink to="/auth/change-password" className={styles.password}>Change Password</NavLink>
             <div className={styles.photoContainer}>
               <img className={styles.photo} src={profile.photo} />
             </div>

@@ -19,8 +19,9 @@
 .sideBar {
   right: 0;
   position: fixed;
+
   height: 100%;
-  margin-top: -45px;
+  margin-top: -65px;
   background-color: var(--magnolia-pink);
   overflow-y: auto;
   width: 300px;
@@ -39,6 +40,10 @@
 
 .profileContainer > a {
   text-decoration: underline;
+}
+
+.password {
+  margin-left: 85px;
 }
 
 h1, h2, h3, h4 {
@@ -64,6 +69,7 @@ h4 {
   width: 50%;
   height: 50%;
   border-radius: 50%;
+  border: 16px solid var(--magnolia-dark-purp);
 }
 
 .loadingContainer {
