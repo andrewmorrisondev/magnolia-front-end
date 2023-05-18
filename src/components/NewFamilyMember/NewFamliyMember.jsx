@@ -43,12 +43,17 @@ const NewFamilyMember = (props) => {
         onChange={handleChange}
       >
         <option value="Parent/Guardian">Parent/Guardian</option>
+        <option value="Mother">Mother</option>
+        <option value="Father">Father</option>
         <option value="Sibling">Sibling</option>
         <option value="Brother">Brother</option>
         <option value="Sister">Sister</option>
         <option value="Child">Child</option>
         <option value="Son">Son</option>
         <option value="Daughter">Daughter</option>
+        <option value="Grandchild">Grandchild</option>
+        <option value="Grandson">Grandson</option>
+        <option value="Granddaughter">Granddaughter</option>
         
         {!props.members.some(
           (member) =>

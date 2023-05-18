@@ -78,3 +78,13 @@
   border: 12px solid white;
   border-radius: 10px;
 }
+
+.grandchildrenContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.grandchildrenContainer > div {
+  border: 12px solid grey;
+  border-radius: 10px;
+}
