@@ -11,8 +11,8 @@ import styles from './EditRecipe.module.css'
 const EditRecipe = (props) => {
   const { state } = useLocation()
   const [formData, setFormData] = useState(state)
-  const [addedInput, setAddedInput] = useState(['something'])
-  const [ingredients, setIngredients] = useState([])
+  const [addedInput, setAddedInput] = useState([formData.ingredients])
+  const [ingredients, setIngredients] = useState([''])
 
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
@@ -35,6 +35,17 @@ const EditRecipe = (props) => {
     setIngredients({...formData.ingredients, [evt.target.name]: evt.target.value})
   }
 
+  const handleDeleteInput = (index) => {
+    setAddedInput(addedInput.filter((elem, idx) => {
+      return index !== idx
+    }))
+    const filteredIngredients = formData.ingredients.filter((elem, idx) => {
+      return index !== idx
+    })
+    setIngredients(filteredIngredients)
+    setFormData({ ...formData, ingredients: filteredIngredients })
+  }
+
   return (  
     <main>
       <form onSubmit={handleSubmit}>
@@ -49,14 +60,18 @@ const EditRecipe = (props) => {
           onChange={handleChange} 
         />
         <label htmlFor="ingredients-input">Ingredients</label>
-        {formData.ingredients.map((elem, index) => (
-          <IngredientsInput 
-            key={index} 
-            index={index} 
-            formData={formData}
-            handleChange={(evt) => handleIngredientChange(index, evt.target.value)}
-          />
+        {addedInput.ingredients.map((elem, index) => (
+          <>
+            <IngredientsInput 
+              key={index} 
+              index={index} 
+              formData={formData}
+              handleChange={(evt) => handleIngredientChange(index, evt.target.value)}
+            />
+              <button type="button" onClick={(evt) => handleDeleteInput(index)}>X</button>
+          </>
         ))}
+        <button type="button" onClick={handleAddInput}>Add</button>
         <label htmlFor="directions-input">Directions</label>
         <textarea 
           type="text"
