@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom"
 
 // components
 import IngredientsInput from "../../components/IngredientsInput/IngredientsInput"
-import EditIngredientsInput from "../../components/EditIngredientsInput/EditIngredientsInput"
 
 // css
 import styles from './EditRecipe.module.css'
