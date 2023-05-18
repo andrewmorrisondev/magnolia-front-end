@@ -150,7 +150,7 @@ function App() {
           path={'/recipes/:recipeId'}
           element={
             <RecipeDetails 
-              user={user} 
+              user={user}
               handleDeleteRecipe={handleDeleteRecipe}
             />
           }
