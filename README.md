@@ -36,9 +36,14 @@ If you are curious about what our back end looks like - [Magnolia: The Back End]
   <li>Express.js</li>
   <li>React.js</li>
   <li>Node.js</li>
+  <li>Postman</li>
   <li>MongoDB</li>
+  <li>JSON Web Token Auth (JWT)</li>
+  <li>AJAX</li>
   <li>JavaScript</li>
   <li>HTML/CSS</li>
+  <li>Netlify</li>
+  <li>Fly.io</li>
   <li>Git</li>
   <li>Github</li>
 </ul>
