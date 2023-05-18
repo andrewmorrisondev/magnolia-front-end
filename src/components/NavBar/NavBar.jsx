@@ -4,13 +4,16 @@ import { NavLink } from 'react-router-dom'
 // css
 import styles from './NavBar.module.css'
 
+// images
+import magnolia from '../../assets/icons/noun-magnolia-5449337.png'
+
 const NavBar = ({ user, profile, tree, handleLogout, hasTree }) => {
 
   const publicLinks = (
     <ul className={styles.left}>
       <li>
         <NavLink className={styles.navImage} to="/">
-          <img src="/src/assets/icons/noun-magnolia-5449337.png" />
+          <img src={magnolia} />
         </NavLink></li>
       <ul className={styles.right}>
         <li><NavLink to="/auth/login">Log In</NavLink></li>
@@ -22,7 +25,7 @@ const NavBar = ({ user, profile, tree, handleLogout, hasTree }) => {
   const protectedLinks = (
     <>
       <ul className={styles.left}>
-        <li><NavLink to="/"><img src="/src/assets/icons/noun-magnolia-5449337.png"></img></NavLink></li>
+        <li><NavLink to="/"><img src={magnolia}></img></NavLink></li>
         {(profile?.familyTree?.length > 0 || hasTree) && (
           <li>
             <NavLink to={`/trees/${tree._id}`}>My Family Tree</NavLink>
