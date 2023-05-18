@@ -35,6 +35,17 @@ const EditRecipe = (props) => {
     setIngredients({...formData.ingredients, [evt.target.name]: evt.target.value})
   }
 
+  const handleDeleteInput = (index) => {
+    setAddedInput(addedInput.filter((elem, idx) => {
+      return index !== idx
+    }))
+    const filteredIngredients = formData.ingredients.filter((elem, idx) => {
+      return index !== idx
+    })
+    setIngredients(filteredIngredients)
+    setFormData({ ...formData, ingredients: filteredIngredients })
+  }
+
   return (  
     <main>
       <form onSubmit={handleSubmit}>
@@ -50,13 +61,16 @@ const EditRecipe = (props) => {
         />
         <label htmlFor="ingredients-input">Ingredients</label>
         {addedInput.map((elem, index) => (
+            <div key={index}>
             <IngredientsInput 
               key={index} 
               index={index} 
               formData={formData} 
               handleIngredientChange={(evt) => handleIngredientChange(index, evt.target.value)}
             />
-        ))}
+              <button type="button" onClick={() => handleDeleteInput(index)}>X</button>
+            </div>
+          ))}
           <button type="button" onClick={handleAddInput}>Add</button>
         <label htmlFor="directions-input">Directions</label>
         <textarea 
