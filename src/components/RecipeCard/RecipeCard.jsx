@@ -14,6 +14,10 @@ const RecipeCard = ({ recipe }) => {
           </span>
         </header>
         {recipe.creator.name}
+        {recipe.photo &&
+        <img src={recipe.photo} alt="a photo of this recipe" />
+        }
+
       </article>
     </Link>
   )
