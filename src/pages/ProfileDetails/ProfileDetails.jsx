@@ -12,7 +12,7 @@ import Loading from '../Loading/Loading'
 // css
 import styles from './ProfileDetails.module.css'
 
-const ProfileDetails = ({ user, tree, profile, profileLoading, handleAddTree, hasTree, handleAddMember, recipes }) => {
+const ProfileDetails = ({ tree, profile, profileLoading, handleAddTree, hasTree, handleAddMember, recipes }) => {
   const [filteredRecipes, setFilteredRecipes] = useState([])
 
   useEffect(() => {

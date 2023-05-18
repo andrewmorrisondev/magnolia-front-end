@@ -1,12 +1,11 @@
 // components
 import FamilyMembersList from "../../components/FamilyMemberList/FamilyMemberList"
-import NewRecipe from "../../components/NewRecipe/NewRecipe"
 import NewFamilyMember from "../../components/NewFamilyMember/NewFamliyMember"
 
 // css
 import styles from './FamilyTreeDetails.module.css'
 
-const FamilyTreeDetails = ({ user, tree, handleAddRecipe, setMembers, handleAddMember, handleDeleteMember}) => {
+const FamilyTreeDetails = ({ user, tree, setMembers, handleAddMember, handleDeleteMember}) => {
 
   return (  
     <main className={styles.container}>
