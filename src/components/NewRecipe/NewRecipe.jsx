@@ -14,7 +14,7 @@ const NewRecipe = (props) => {
     directions: '',
   })
 
-  const [ingredients, setIngredients] = useState([''])
+  const [ingredients, setIngredients] = useState([])
 
   const [addedInput, setAddedInput] = useState(['something'])
   const [photoData, setPhotoData] = useState({ photo: null })

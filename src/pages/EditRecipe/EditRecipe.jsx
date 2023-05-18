@@ -67,7 +67,7 @@ const EditRecipe = (props) => {
               key={index} 
               index={index} 
               formData={formData}
-              handleChange={(evt) => handleIngredientChange(index, evt.target.value)}
+              handleIngredientChange={(evt) => handleIngredientChange(index, evt.target.value)}
             />
               <button type="button" onClick={() => handleDeleteInput(index)}>X</button>
             </div>
