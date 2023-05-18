@@ -11,8 +11,9 @@ import styles from './EditRecipe.module.css'
 const EditRecipe = (props) => {
   const { state } = useLocation()
   const [formData, setFormData] = useState(state)
-  const [addedInput, setAddedInput] = useState([formData.ingredients])
-  const [ingredients, setIngredients] = useState([''])
+
+  const [addedInput, setAddedInput] = useState([...formData.ingredients])
+  const [ingredients, setIngredients] = useState([])
 
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
