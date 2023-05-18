@@ -14,7 +14,7 @@ const NewRecipe = (props) => {
     directions: '',
   })
 
-  const [ingredients, setIngredients] = useState([''])
+  const [ingredients, setIngredients] = useState([])
 
   const [addedInput, setAddedInput] = useState(['something'])
   const [photoData, setPhotoData] = useState({ photo: null })
@@ -45,12 +45,8 @@ const NewRecipe = (props) => {
 
   const handleAddInput = (evt) => {
     evt.preventDefault()
-    const newIngredient = { id: Date.now(), value: '' }
-    setAddedInput([...addedInput, newIngredient])
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      ingredients: [...prevFormData.ingredients, newIngredient],
-    }))
+    setAddedInput( [ ...addedInput, ''])
+    setIngredients({ ...formData.ingredients, [evt.target.name]: evt.target.value})
   }
 
   const handleDeleteInput = (index) => {
@@ -105,7 +101,7 @@ const NewRecipe = (props) => {
             type="text"
             name="name"
             id="name-input"
-            value={formData.name || ''}
+            value={formData.name}
             placeholder="Mom's Spaghetti"
             onChange={handleChange} 
             required
