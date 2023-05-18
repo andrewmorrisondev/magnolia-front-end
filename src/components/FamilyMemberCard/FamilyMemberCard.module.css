@@ -11,6 +11,7 @@
 
 .familyMemberCard > .name {
   font-size: 30px;
+  max-height: 30px;
 }
 
 .familyMemberCard > .relation {
