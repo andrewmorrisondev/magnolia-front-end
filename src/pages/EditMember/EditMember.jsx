@@ -26,6 +26,7 @@ const EditMember = ({ tree, handleUpdateMember }) => {
           value={formData.name}
           placeholder="Name"
           onChange={handleChange} 
+          autoComplete="off"
         />
         <select 
         required

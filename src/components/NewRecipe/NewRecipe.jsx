@@ -67,6 +67,7 @@ const NewRecipe = (props) => {
             placeholder="Mom's Spaghetti"
             onChange={handleChange} 
             required
+            autoComplete='off'
           />
         <label htmlFor="ingredients-input">Ingredients</label>
           {addedInput.map((elem, index) => (
