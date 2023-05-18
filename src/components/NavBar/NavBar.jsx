@@ -12,9 +12,10 @@ const NavBar = ({ user, profile, tree, handleLogout, hasTree }) => {
         <NavLink className={styles.navImage} to="/">
           <img src="/src/assets/icons/noun-magnolia-5449337.png" />
         </NavLink></li>
-      <li><NavLink to="/auth/login">Log In</NavLink></li>
-      <li><NavLink to="/auth/signup">Sign Up</NavLink></li>
-      <li><NavLink to="/recipes">Recipes List</NavLink></li>
+      <ul className={styles.right}>
+        <li><NavLink to="/auth/login">Log In</NavLink></li>
+        <li><NavLink to="/auth/signup">Sign Up</NavLink></li>
+      </ul>
     </ul>
   )
 
