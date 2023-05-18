@@ -1,13 +1,10 @@
-// npm modules
-import { useEffect } from 'react'
-
 // components
 import FamilyMemberCard from "../FamilyMemberCard/FamilyMemberCard"
 
 // css
 import styles from './FamilyMemberList.module.css'
 
-const FamilyMembersList = ({tree, members, setMembers, handleDeleteMember}) => {
+const FamilyMembersList = ({tree, members, handleDeleteMember}) => {
   const children = members.filter(member => member.relation === 'Child' || member.relation === 'Son' || member.relation === 'Daughter')
   const siblings = members.filter(member => member.relation === 'Sibling' || member.relation === 'Brother' || member.relation === 'Sister')
   const significantOthers = members.filter(member => member.relation === 'Significant Other' || member.relation === 'Husband' || member.relation === 'Wife')
