@@ -101,7 +101,7 @@ const NewRecipe = (props) => {
             type="text"
             name="name"
             id="name-input"
-            value={formData.name || ''}
+            value={formData.name}
             placeholder="Mom's Spaghetti"
             onChange={handleChange} 
             required
