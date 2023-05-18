@@ -47,19 +47,20 @@ const ProfileDetails = ({ tree, profile, profileLoading, handleAddTree, hasTree,
             </div>
           </div>
         </div>
-
-        <div className={styles.recipeCardContainer}>
+        <div className={styles.recipeContainer}>
           <h1>My Recipes</h1>
-          {(filteredRecipes.length)
-            ?
-            filteredRecipes.map(recipe => (
-              <RecipeCard key={recipe._id} recipe={recipe} />))
-            :
-            <div className={styles.loadingContainer}>
-              <img className={styles.loadingImage} src="/src/assets/icons/noun-waiting-1057935.png" />
-              <h3>No Recipes Yet</h3>
-            </div>
-          }
+          <div className={styles.recipeCardContainer}>
+            {(filteredRecipes.length)
+              ?
+              filteredRecipes.map(recipe => (
+                <RecipeCard key={recipe._id} recipe={recipe} />))
+              :
+              <div className={styles.loadingContainer}>
+                <img className={styles.loadingImage} src="/src/assets/icons/noun-waiting-1057935.png" />
+                <h3>No Recipes Yet</h3>
+              </div>
+            }
+          </div>
         </div>
       </main>
     </>
