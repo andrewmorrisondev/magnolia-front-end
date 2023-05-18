@@ -8,7 +8,6 @@ import styles from './RecipesList.module.css'
 const RecipesList = (props) => {
   return (
     <>
-      <main className={styles.container}>
         <div className={styles.sideBar}>
           <div className={styles.formContainer}>
             <h1>Add a New Recipe</h1>
@@ -20,7 +19,8 @@ const RecipesList = (props) => {
             <RecipeCard key={recipe._id} recipe={recipe} />
           ))}
         </div>
-      </main>
+      {/* <main className={styles.container}>
+      </main> */}
     </>
   )
 }

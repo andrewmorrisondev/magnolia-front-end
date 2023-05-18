@@ -1,11 +1,16 @@
 .container {
   gap: 14px;
-  width: 100%;
+  width: 60%;
+  height: 100%;
   padding: 20px;
+  background-color: black;
 }
 
 .recipeCardContainer {
-  width: 68%;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .sideBar {

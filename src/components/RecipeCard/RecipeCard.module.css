@@ -1,11 +1,12 @@
 .container {
-  width: 100%;
+  width: 500px;
   height: 220px;
   padding: 14px 21px;
   border-radius: 5px;
-  border: rgb(225, 199, 199);
-  background-color: var(--magnolia-mauve);
-  margin: 8px;
+  border: 3px solid var(--magnolia-dark-purp);
+  background-color: #fcf8f8;
+  margin: 8px 8px 16px 8px;
+  box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.5);
 }
 
 .container header {
@@ -21,5 +22,5 @@
 
 .container h1 {
   margin: 0;
-  font-size: 30px;
+  font-size: 36px;
 }
