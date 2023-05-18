@@ -1,5 +1,5 @@
 // npm modules
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 // components
@@ -25,23 +25,26 @@ const ProfileDetails = ({ tree, profile, profileLoading, handleAddTree, hasTree,
   return (
     <>
       <main className={styles.container}>
-        <div className={styles.profileContainer}>
-          <h1>{profile.name}</h1>
-          {
-            (hasTree == !profile.familyTree.length)
-            ?
-            <Link to={`/trees/${tree._id}`}>
-              <h4>The {tree.name} Family</h4>
-            </Link>
-            :
-            <NewTree 
-              handleAddTree={handleAddTree}
-              tree={tree}
-              handleAddMember={handleAddMember}
-            />
-          }
-          <div className={styles.photoContainer}>
-            <img className={styles.photo} src={profile.photo} />
+        <div className={styles.sideBar}>
+          <div className={styles.profileContainer}>
+            <h1>{profile.name}</h1>
+            {
+              (hasTree == !profile.familyTree.length)
+              ?
+              <Link to={`/trees/${tree._id}`}>
+                <h4>The {tree.name} Family</h4>
+              </Link>
+              :
+              <NewTree 
+                handleAddTree={handleAddTree}
+                tree={tree}
+                handleAddMember={handleAddMember}
+              />
+            }
+            <NavLink to="/auth/change-password">Change Password</NavLink>
+            <div className={styles.photoContainer}>
+              <img className={styles.photo} src={profile.photo} />
+            </div>
           </div>
         </div>
 

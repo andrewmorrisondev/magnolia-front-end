@@ -23,7 +23,7 @@ const NewFamilyMember = (props) => {
 
   return (  
     <form onSubmit={handleSubmit} className={styles.newMemberForm}>
-      <label htmlFor="name-input">Add Member
+      <label htmlFor="name-input">Add Member</label>
         <input 
           type="text"
           name="name"
@@ -34,7 +34,6 @@ const NewFamilyMember = (props) => {
           onChange={handleChange} 
           required
         />
-      </label>
       <label htmlFor="relation-input">Relation</label>
       <select 
         required

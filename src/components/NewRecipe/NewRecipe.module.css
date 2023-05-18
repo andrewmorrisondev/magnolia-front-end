@@ -1,7 +1,6 @@
 .newRecipeForm {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   padding: 15px;
 }
 
@@ -10,9 +9,17 @@
   align-items: center;
 }
 
+.newRecipeForm > label {
+  margin-top: 10px;
+}
+
 .newRecipeForm > button, .ingredientsInput > button {
   height: 30px;
   border: 1px solid var(--magnolia-dark-purp);
   color: var(--magnolia-dark-purp);
   cursor: pointer;
+}
+
+.ingredientsInput > input {
+  width: 180px;
 }

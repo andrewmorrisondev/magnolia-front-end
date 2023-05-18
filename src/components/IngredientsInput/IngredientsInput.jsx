@@ -1,5 +1,9 @@
 const IngredientsInput = (props) => {
-
+  const ingredientsPlaceholders = ['Flour', 'Egg', 'Tomatoes', 
+                                  'Tomato Paste', 'Meatballs', 
+                                  'Onions', 'Garlic', 'Salt', 
+                                  'Pepper', 'Oregano', 'do u rly need more?', 'fine...'
+                                ]
   return (  
     <>
       <input 
@@ -7,8 +11,8 @@ const IngredientsInput = (props) => {
         name="ingredients"
         id="ingredients-input"
         value={props.formData.ingredients[props.index]}
-        placeholder="Pasta, Sauce, Meatballs"
-        onChange={props.handleIngredientChange}
+        placeholder={ingredientsPlaceholders[props.index % ingredientsPlaceholders.length]}
+        onChange={props.handleIngredientChange} 
         autoComplete="off"
       />
     </>
