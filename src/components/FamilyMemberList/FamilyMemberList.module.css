@@ -9,7 +9,8 @@
   justify-content: center;
 }
 .grandparentsContainer > div {
-  border: 12px solid white;
+  border-bottom: 12px solid var(--magnolia-red);
+  border-left: 12px solid var(--magnolia-red);
   border-radius: 10px;
 }
 
@@ -20,7 +21,8 @@
   padding: 10px;
 }
 .parentsContainer > div {
-  border: 12px solid blue;
+  border-bottom: 12px solid var(--magnolia-yellow);
+  border-left: 12px solid var(--magnolia-yellow);
   border-radius: 10px;
 }
 
@@ -31,7 +33,8 @@
   flex-wrap: wrap;
 }
 .siblingsLContainer > div, .siblingsRContainer > div {
-  border: 12px solid red;
+  border-bottom: 12px solid var(--magnolia-orange);
+  border-left: 12px solid var(--magnolia-orange);
   border-radius: 10px; 
 }
 
@@ -53,7 +56,8 @@
   align-items: center;
 }
 .significantOthersContainer > div {
-  border: 12px solid pink;
+  border-bottom: 12px solid var(--magnolia-tree-pink);
+  border-left: 12px solid var(--magnolia-tree-pink);
   border-radius: 10px;
 }
 
@@ -65,7 +69,8 @@
 
 }
 .meContainer > div {
-  border: 12px solid var(--magnolia-dark-purp);
+  border-bottom: 12px solid var(--magnolia-dark-purp);
+  border-left: 12px solid var(--magnolia-dark-purp);
   border-radius: 10px;
 }
 
@@ -75,7 +80,8 @@
   justify-content: center;
 }
 .childrenContainer > div {
-  border: 12px solid white;
+  border-bottom: 12px solid var(--magnolia-tree-purp);
+  border-left: 12px solid var(--magnolia-tree-purp);
   border-radius: 10px;
 }
 
@@ -85,6 +91,7 @@
   justify-content: center;
 }
 .grandchildrenContainer > div {
-  border: 12px solid grey;
+  border-bottom: 12px solid var(--magnolia-olive);
+  border-left: 12px solid var(--magnolia-olive);
   border-radius: 10px;
 }

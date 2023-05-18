@@ -1,3 +1,6 @@
+// npm modules
+import { useState, useEffect } from 'react'
+
 // components
 import FamilyMemberCard from "../FamilyMemberCard/FamilyMemberCard"
 
@@ -15,6 +18,15 @@ const FamilyMembersList = ({tree, members, handleDeleteMember}) => {
   const siblingsL = siblings.filter((sibling, idx) => idx % 2 === 0)
   const siblingsR = siblings.filter((sibling, idx) => idx % 2 !== 0)
 
+  const [hoveredMemberId, setHoveredMemberId] = useState(null)
+
+  const handleHover = (memberId, isHovered) => {
+    if (isHovered) {
+      setHoveredMemberId(memberId)
+    } else {
+      setHoveredMemberId(null)
+    }
+  }
   return (
 
     <div className={styles.familyMemberList}>
@@ -27,6 +39,9 @@ const FamilyMembersList = ({tree, members, handleDeleteMember}) => {
             tree={tree}
             member={grandparent}
             handleDeleteMember={handleDeleteMember}
+            hoveredMemberId={hoveredMemberId}
+            onMouseEnter={() => handleHover(grandparent._id, true)}
+            onMouseLeave={() => handleHover(grandparent._id, false)}
           />
         ))}
       </div>
@@ -38,7 +53,10 @@ const FamilyMembersList = ({tree, members, handleDeleteMember}) => {
             parent={parent}
             tree={tree}
             member={parent}
-            handleDeleteMember={handleDeleteMember} 
+            handleDeleteMember={handleDeleteMember}
+            hoveredMemberId={hoveredMemberId}
+            onMouseEnter={() => handleHover(parent._id, true)}
+            onMouseLeave={() => handleHover(parent._id, false)}
           />
           ))}
       </div>
@@ -51,7 +69,10 @@ const FamilyMembersList = ({tree, members, handleDeleteMember}) => {
               sibling={sibling}
               tree={tree}
               member={sibling}
-              handleDeleteMember={handleDeleteMember} 
+              handleDeleteMember={handleDeleteMember}
+              hoveredMemberId={hoveredMemberId}
+              onMouseEnter={() => handleHover(sibling._id, true)}
+              onMouseLeave={() => handleHover(sibling._id, false)}
             />
           ))}
         </div>
@@ -72,6 +93,9 @@ const FamilyMembersList = ({tree, members, handleDeleteMember}) => {
               tree={tree}
               member={significantOther}
               handleDeleteMember={handleDeleteMember}
+              hoveredMemberId={hoveredMemberId}
+              onMouseEnter={() => handleHover(significantOther._id, true)}
+              onMouseLeave={() => handleHover(significantOther._id, false)}
             />
           ))}
         </div>
@@ -83,7 +107,10 @@ const FamilyMembersList = ({tree, members, handleDeleteMember}) => {
               sibling={sibling}
               tree={tree}
               member={sibling}
-              handleDeleteMember={handleDeleteMember} 
+              handleDeleteMember={handleDeleteMember}
+              hoveredMemberId={hoveredMemberId}
+              onMouseEnter={() => handleHover(sibling._id, true)}
+              onMouseLeave={() => handleHover(sibling._id, false)}
             />
           ))}
         </div>
@@ -96,7 +123,10 @@ const FamilyMembersList = ({tree, members, handleDeleteMember}) => {
             child={child}
             tree={tree}
             member={child}
-            handleDeleteMember={handleDeleteMember} 
+            handleDeleteMember={handleDeleteMember}
+            hoveredMemberId={hoveredMemberId}
+            onMouseEnter={() => handleHover(child._id, true)}
+            onMouseLeave={() => handleHover(child._id, false)}
           />
         ))}
       </div>
@@ -108,6 +138,9 @@ const FamilyMembersList = ({tree, members, handleDeleteMember}) => {
             tree={tree}
             member={grandchild}
             handleDeleteMember={handleDeleteMember}
+            hoveredMemberId={hoveredMemberId}
+            onMouseEnter={() => handleHover(grandchild._id, true)}
+            onMouseLeave={() => handleHover(grandchild._id, false)}
           />
         ))}
       </div>
