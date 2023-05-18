@@ -32,7 +32,6 @@ h1, h2, h3, h4 {
 }
 
 h3 {
-  margin-top: 15%;
   font-size: 1.5rem;
 }
 
@@ -51,4 +50,16 @@ h4 {
   width: 50%;
   height: 50%;
   border-radius: 50%;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loadingImage {
+  width: 20%;
+  height: 20%;
+  align-self: center;
 }

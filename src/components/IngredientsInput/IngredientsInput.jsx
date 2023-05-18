@@ -1,5 +1,3 @@
-
-
 const IngredientsInput = (props) => {
   return (  
     <>
@@ -9,8 +7,7 @@ const IngredientsInput = (props) => {
         id="ingredients-input"
         value={props.formData.ingredients[props.index] || ''}
         placeholder="Pasta, Sauce, Meatballs"
-        onChange={props.handleChange} 
-        required
+        onChange={props.handleIngredientChange} 
       />
     </>
   )
