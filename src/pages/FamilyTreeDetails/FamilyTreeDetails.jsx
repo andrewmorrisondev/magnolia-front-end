@@ -1,3 +1,6 @@
+// npm modules
+import React, { useEffect } from 'react';
+
 // components
 import FamilyMembersList from "../../components/FamilyMemberList/FamilyMemberList"
 import NewFamilyMember from "../../components/NewFamilyMember/NewFamliyMember"
@@ -25,7 +28,6 @@ const FamilyTreeDetails = ({ user, tree, setMembers, handleAddMember, handleDele
           members={tree.members}
           handleDeleteMember={handleDeleteMember} />
       </div>
-      {/* <NewRecipe handleAddRecipe={handleAddRecipe} /> */}
     </main>
   )
 }

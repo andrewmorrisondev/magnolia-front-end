@@ -1,3 +1,13 @@
+html {
+  --magnolia-tree-pink: #FFE3DE;
+  --magnolia-olive: #AEBFB1;
+  --magnolia-orange: #FCDBC2;
+  --magnolia-yellow: #FFFBE3;
+  --magnolia-blue: #FFC4B2;
+  --magnolia-red: #EEA4A7;
+  --magnolia-tree-purp: #AC90A9;
+}
+
 .container {
   gap: 14px;
   width: 100%;
