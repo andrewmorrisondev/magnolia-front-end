@@ -41,7 +41,12 @@ if (!recipe) return <h1>Loading... </h1>
           </span>
         </header>
         <h2>Ingredients</h2>
-        <p>{recipe.ingredients}</p>
+        {recipe.ingredients.map((ingredient, index) => {
+          
+          return(
+            <p key={index}>- {ingredient}</p>
+          )
+        })}
         <h2>Directions</h2>
         <p>{recipe.directions}</p>
       </article>
