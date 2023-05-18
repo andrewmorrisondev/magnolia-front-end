@@ -62,18 +62,9 @@ const NewRecipe = (props) => {
               key={index} 
               index={index} 
               formData={formData} 
-              handleChange={(evt) => handleIngredientChange(index, evt.target.value)}
+              handleIngredientChange={(evt) => handleIngredientChange(index, evt.target.value)}
             />
           ))}
-          {/* <input 
-            type="text"
-            name="ingredients"
-            id="ingredients-input"
-            value={formData.ingredients}
-            placeholder="Pasta, Sauce, Meatballs"
-            onChange={handleChange} 
-            required
-          /> */}
           <button type="button" onClick={handleAddInput}>Add</button>
         <label htmlFor="directions-input">Directions</label>
           <textarea 

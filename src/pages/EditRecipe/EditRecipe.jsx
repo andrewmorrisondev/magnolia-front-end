@@ -11,7 +11,7 @@ import styles from './EditRecipe.module.css'
 const EditRecipe = (props) => {
   const { state } = useLocation()
   const [formData, setFormData] = useState(state)
-  const [addedInput, setAddedInput] = useState(['something'])
+  const [addedInput, setAddedInput] = useState([...formData.ingredients])
   const [ingredients, setIngredients] = useState([])
 
   const handleChange = (evt) => {
@@ -49,14 +49,15 @@ const EditRecipe = (props) => {
           onChange={handleChange} 
         />
         <label htmlFor="ingredients-input">Ingredients</label>
-        {formData.ingredients.map((elem, index) => (
-          <IngredientsInput 
-            key={index} 
-            index={index} 
-            formData={formData}
-            handleChange={(evt) => handleIngredientChange(index, evt.target.value)}
-          />
+        {addedInput.map((elem, index) => (
+            <IngredientsInput 
+              key={index} 
+              index={index} 
+              formData={formData} 
+              handleIngredientChange={(evt) => handleIngredientChange(index, evt.target.value)}
+            />
         ))}
+          <button type="button" onClick={handleAddInput}>Add</button>
         <label htmlFor="directions-input">Directions</label>
         <textarea 
           type="text"
