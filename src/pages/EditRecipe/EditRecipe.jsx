@@ -11,6 +11,7 @@ import styles from './EditRecipe.module.css'
 const EditRecipe = (props) => {
   const { state } = useLocation()
   const [formData, setFormData] = useState(state)
+
   const [addedInput, setAddedInput] = useState([...formData.ingredients])
   const [ingredients, setIngredients] = useState([])
 
@@ -65,8 +66,8 @@ const EditRecipe = (props) => {
             <IngredientsInput 
               key={index} 
               index={index} 
-              formData={formData} 
-              handleIngredientChange={(evt) => handleIngredientChange(index, evt.target.value)}
+              formData={formData}
+              handleChange={(evt) => handleIngredientChange(index, evt.target.value)}
             />
               <button type="button" onClick={() => handleDeleteInput(index)}>X</button>
             </div>

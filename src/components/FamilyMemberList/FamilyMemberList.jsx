@@ -13,6 +13,7 @@ const FamilyMembersList = ({tree, members, setMembers, handleDeleteMember}) => {
   const significantOthers = members.filter(member => member.relation === 'Significant Other' || member.relation === 'Husband' || member.relation === 'Wife')
   const parents = members.filter(member => member.relation === 'Parent/Guardian' || member.relation === 'Mother' || member.relation === 'Father')
   const grandparents = members.filter(member => member.relation === 'Grandparent')
+  const grandchildren = members.filter(member => member.relation === 'Grandchild' || member.relation === 'Grandson' || member.relation === 'Granddaughter')
 
   const siblingsL = siblings.filter((sibling, idx) => idx % 2 === 0)
   const siblingsR = siblings.filter((sibling, idx) => idx % 2 !== 0)
@@ -99,6 +100,17 @@ const FamilyMembersList = ({tree, members, setMembers, handleDeleteMember}) => {
             tree={tree}
             member={child}
             handleDeleteMember={handleDeleteMember} 
+          />
+        ))}
+      </div>
+      <div className={styles.grandchildrenContainer}>
+        {grandchildren.map(grandchild => (
+          <FamilyMemberCard
+            key={grandchild._id}
+            grandchild={grandchild}
+            tree={tree}
+            member={grandchild}
+            handleDeleteMember={handleDeleteMember}
           />
         ))}
       </div>

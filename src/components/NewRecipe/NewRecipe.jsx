@@ -13,7 +13,7 @@ const NewRecipe = (props) => {
     ingredients: [],
     directions: '',
   })
-  const [ingredients, setIngredients] = useState([])
+  const [ingredients, setIngredients] = useState([''])
 
   const [addedInput, setAddedInput] = useState(['something'])
 
@@ -33,8 +33,19 @@ const NewRecipe = (props) => {
 
   const handleAddInput = (evt) => {
     evt.preventDefault()
-    setAddedInput( [...addedInput, ''])
-    setIngredients({...formData.ingredients, [evt.target.name]: evt.target.value})
+    setAddedInput( [ ...addedInput, ''])
+    setIngredients({ ...formData.ingredients, [evt.target.name]: evt.target.value})
+  }
+
+  const handleDeleteInput = (index) => {
+    setAddedInput(addedInput.filter((elem, idx) => {
+      return index !== idx
+    }))
+    const filteredIngredients = formData.ingredients.filter((elem, idx) => {
+      return index !== idx
+    })
+    setIngredients(filteredIngredients)
+    setFormData({ ...formData, ingredients: filteredIngredients })
   }
 
   const handleDeleteInput = (index) => {
