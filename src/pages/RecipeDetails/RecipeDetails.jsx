@@ -43,7 +43,10 @@ if (!recipe) return <h1>Loading... </h1>
         <h2>Ingredients</h2>
         {recipe.ingredients.map((ingredient, index) => {
           return(
-            <p key={index}>- {ingredient}</p>
+            <>
+              
+              <p> <input key={index} type="checkbox"></input> {ingredient}</p>
+            </>
           )
         })}
         <h2>Directions</h2>

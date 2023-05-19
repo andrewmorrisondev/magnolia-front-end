@@ -18,7 +18,7 @@ html {
   right: 0;
   position: fixed;
   height: 100%;
-  margin-top: -45px;
+  margin-top: -75px;
   background-color: var(--magnolia-pink);
   overflow-y: auto;
   width: 300px;
