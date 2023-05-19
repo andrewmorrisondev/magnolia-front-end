@@ -7,7 +7,7 @@
 <img width="338" alt="Screen Shot 2023-05-18 at 2 26 38 PM" src="https://github.com/nonchalamment/magnolia-back-end/assets/26176522/d436edb2-5c0e-43a5-8b89-ef998ee9e9c9">
 
 ## What is this?
-Magnolia is an MERN stack CRUD app that makes it convenient to keep track of your family's recipes. You can create a family tree for your family members as well as show off precious recipes handed down for generations. Browse recipes from your fellow users and share your own! Get your family members to add their recipes, too! Who knows? Your recipe could be world-famous!
+Magnolia is a MERN stack CRUD app that makes it convenient to keep track of your family's recipes. You can create a family tree for your family members as well as show off precious recipes handed down for generations. Browse recipes from your fellow users and share your own! Get your family members to add their recipes, too! Who knows? Your recipe could be world-famous!
 
 ## Getting Started
 [Magnolia: The App](https://magnolia-room39.netlify.app)
@@ -49,4 +49,4 @@ If you are curious about what our back end looks like - [Magnolia: The Back End]
 </ul>
 
 ## Next Steps
-We would like to be able to replace the tree members with real users by sending a link to family members so that they can log in and join the family tree. We were able to get the positions of each family member card correct depending on the relation, but we would like to be able to conditionally render arrow links connecting the family members. Moreover, on the Family Member show page we also want a button to add a new recipe and assign it to a particular member that the recipe belongs to. Being able to add a relation from the page of a particular member would be another neat feature that we could add. It would also be fantastic to be able to add more generations and display something that looks closer to a tree!
+We would like to be able to replace the tree members with real users by sending a link to family members so that they can log in and join the family tree. We were able to get the positions of each family member card correct depending on the relation, but we would like to be able to conditionally render arrow links connecting the family members. Moreover, on the Family Member show page, we also want a button to add a new recipe and assign it to a particular member that the recipe belongs to. Being able to add a relation from the page of a particular member would be another neat feature that we could add. It would also be fantastic to be able to add more generations and display something that looks closer to a tree!
