@@ -6,11 +6,18 @@
   background-color: black;
 }
 
-.recipeCardContainer {
+.search {
   width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.recipeCardContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  margin-top: 10px;
 }
 
 .sideBar {
