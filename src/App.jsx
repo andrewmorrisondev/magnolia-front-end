@@ -96,7 +96,7 @@ function App() {
   const handleDeleteRecipe = async (recipeId) => {
     const deletedRecipe = await recipeService.delete(recipeId)
     setRecipes(recipes.filter(r => r._id !== deletedRecipe._id))
-    setProfile({ ...profile, familyRecipes: [profile.familyRecipes.filter((r) => r._id !== recipeId)] })
+    setProfile({ ...profile, familyRecipes: profile.familyRecipes.filter((r) => r._id !== recipeId) })
     navigate('/recipes')
   }
 
