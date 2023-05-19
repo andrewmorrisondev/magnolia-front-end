@@ -30,9 +30,11 @@ if (!recipe) return <h1>Loading... </h1>
           <span>
             {recipe.creator._id === props.user.profile &&
               <>
-                <button>
-                  <Link to={`/recipes/${recipeId}/edit`} state={recipe}>Edit</Link>
-                </button>
+                <Link to={`/recipes/${recipeId}/edit`} state={recipe}>
+                  <button>
+                    Edit
+                  </button>
+                </Link>
                 <button onClick={() => props.handleDeleteRecipe(recipeId)}>
                   Delete
                 </button>
@@ -43,17 +45,13 @@ if (!recipe) return <h1>Loading... </h1>
         <h2>Ingredients</h2>
         {recipe.ingredients.map((ingredient, index) => {
           return(
-            <>
-              
+            <div key={index}>
               <p> <input key={index} type="checkbox"></input> {ingredient}</p>
-            </>
+            </div>
           )
         })}
         <h2>Directions</h2>
         <p>{recipe.directions}</p>
-        {recipe.photo &&
-          <img src={recipe.photo} alt="a photo of this recipe" />
-        }
       </article>
     </main>
   )

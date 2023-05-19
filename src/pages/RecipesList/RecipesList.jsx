@@ -19,8 +19,6 @@ const RecipesList = (props) => {
             <RecipeCard key={recipe._id} recipe={recipe} />
           ))}
         </div>
-      {/* <main className={styles.container}>
-      </main> */}
     </>
   )
 }
