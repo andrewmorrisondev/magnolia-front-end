@@ -80,12 +80,15 @@ input {
   border: 1px solid #ccc;
   display: flex;
   background-color: var(--magnolia-white);
+  font-family: "Roboto";
 }
 
 textarea {
   background-color: var(--magnolia-white);
   border: none;
   margin-left: 10px;
+  font-size: 16px;
+  padding: 10px;
 }
 
 select {

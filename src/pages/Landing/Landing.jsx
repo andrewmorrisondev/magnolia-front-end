@@ -1,3 +1,6 @@
+// npm modules
+import { Link } from 'react-router-dom'
+
 // css
 import styles from './Landing.module.css'
 
@@ -10,6 +13,7 @@ const Landing = ({ user }) => {
       <h1>Magnolia</h1>
       <img src={magnolia} />
       <h2>{user ? 'Welcome, ' + user.name + '!' : 'Welcome, guest!'}</h2>
+      {user && <Link className={styles.profileLink} to={`/profiles/${user.profile}`}>Create Your Family Tree!</Link>}
     </main>
   )
 }

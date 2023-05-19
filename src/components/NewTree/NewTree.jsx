@@ -11,7 +11,6 @@ const NewTree = (props) => {
   const handleSubmit = async (evt) => {
     evt.preventDefault()
     setFormData({ name: '' })
-    console.log(props.tree._id)
     try {
       await props.handleAddTree(formData)
     }

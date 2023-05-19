@@ -22,9 +22,11 @@
 
 .newRecipeForm > textarea {
   font-family: 'Roboto', sans-serif;
-  width: 215px;
+  width: 205px;
+  height: 40px;
   border-radius: 5px;
   margin-bottom: 10px;
+  margin-left: 5px;
   margin-top: 10px;
 }
 

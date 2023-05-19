@@ -29,3 +29,11 @@
   from {transform: scale(1.1, 1.1);}
   to {transform: scale(1, 1);}
 }
+
+.profileLink {
+  text-decoration: underline;
+  transition: all .2s ease-in-out; 
+}
+.profileLink:hover {
+  transform: scale(1.1); 
+}
