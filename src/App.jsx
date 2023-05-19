@@ -138,7 +138,12 @@ function App() {
       <div className="nav-spacer"></div>
       <NavBar user={user} profile={profile} tree={tree} handleLogout={handleLogout} hasTree={hasTree} />
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        <Route path="/" 
+          element={<Landing 
+          user={user} 
+          tree={tree} 
+          />} 
+        />
         <Route path="/recipes" 
           element={
             <RecipesList  
