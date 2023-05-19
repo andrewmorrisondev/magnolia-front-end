@@ -41,10 +41,10 @@ const ProfileDetails = ({ tree, profile, profileLoading, handleAddTree, hasTree,
                 handleAddMember={handleAddMember}
               />
             }
-            <NavLink to="/auth/change-password" className={styles.password}>Change Password</NavLink>
             <div className={styles.photoContainer}>
               <img className={styles.photo} src={profile.photo} />
             </div>
+            <NavLink to="/auth/change-password" className={styles.password}>Change Password</NavLink>
           </div>
         </div>
         <div className={styles.recipeContainer}>
@@ -56,7 +56,6 @@ const ProfileDetails = ({ tree, profile, profileLoading, handleAddTree, hasTree,
                 <RecipeCard key={recipe._id} recipe={recipe} />))
               :
               <div className={styles.loadingContainer}>
-                <img className={styles.loadingImage} src="/src/assets/icons/noun-waiting-1057935.png" />
                 <h3>No Recipes Yet</h3>
               </div>
             }
