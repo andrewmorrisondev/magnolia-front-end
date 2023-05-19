@@ -40,6 +40,8 @@ If you are curious about what our back end looks like - [Magnolia: The Back End]
   <li>MongoDB</li>
   <li>JSON Web Token Auth (JWT)</li>
   <li>AJAX</li>
+   <li>Cloudinary</li>
+  <li>Vite</li>
   <li>JavaScript</li>
   <li>HTML/CSS</li>
   <li>Netlify</li>
