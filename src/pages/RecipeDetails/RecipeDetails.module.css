@@ -19,9 +19,10 @@
   text-indent: 21px;
   text-align: left;
   display: flex;
+  align-items: center;
 }
 .container input {
-  background-color: var(--magnolia-dark-purp);
+  width: 20px;
 }
 
 .container header {

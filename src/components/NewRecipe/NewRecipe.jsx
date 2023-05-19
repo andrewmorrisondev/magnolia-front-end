@@ -50,7 +50,7 @@ const NewRecipe = (props) => {
   }
 
   const handleIngredientChange = (index, value) => {
-    const updatedIngredients = [...formData.ingredients]
+    const updatedIngredients = formData.ingredients
     updatedIngredients[index] = value
     setFormData({ ...formData, ingredients: updatedIngredients })
   }
