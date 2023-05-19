@@ -20,6 +20,14 @@
   cursor: pointer;
 }
 
+.newRecipeForm > textarea {
+  font-family: 'Roboto', sans-serif;
+  width: 215px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
 .ingredientsInput > input {
   width: 180px;
 }

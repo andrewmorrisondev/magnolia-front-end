@@ -81,7 +81,7 @@ const NewRecipe = (props) => {
               <button type="button" onClick={() => handleDeleteInput(index)}>X</button>
             </div>
           ))}
-          <button type="button" onClick={handleAddInput}>Add</button>
+          <button type="button" onClick={handleAddInput}>More Ingredients</button>
         <label htmlFor="directions-input">Directions</label>
           <textarea 
             type="text"
