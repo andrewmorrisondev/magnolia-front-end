@@ -49,12 +49,13 @@ const EditRecipe = (props) => {
 
   return (  
     <main>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={styles.editRecipe}>
         <h1>Edit Recipe</h1>
         <label htmlFor="name-input">Name</label>
         <input 
-          type="text"
+          className={styles.nameInput}
           name="name"
+          type="text"
           id="name-input"
           value={formData.name}
           placeholder="Name"
@@ -63,7 +64,7 @@ const EditRecipe = (props) => {
         />
         <label htmlFor="ingredients-input">Ingredients</label>
         {addedInput.map((elem, index) => (
-            <div key={index}>
+            <div key={index} className={styles.ingredientsInput}>
             <IngredientsInput 
               key={index} 
               index={index} 
@@ -73,8 +74,8 @@ const EditRecipe = (props) => {
               <button type="button" onClick={() => handleDeleteInput(index)}>X</button>
             </div>
           ))}
-          <button type="button" onClick={handleAddInput}>Add</button>
-        <label htmlFor="directions-input">Directions</label>
+          <button type="button" onClick={handleAddInput}>More Ingredients</button>
+        <label className={styles.directionsLabel} htmlFor="directions-input">Directions</label>
         <textarea 
           type="text"
           name="directions"
