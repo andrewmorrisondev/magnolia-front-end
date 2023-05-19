@@ -13,14 +13,14 @@ const EditRecipe = (props) => {
   const [formData, setFormData] = useState(state)
 
   const [addedInput, setAddedInput] = useState([...formData.ingredients])
-  const [ingredients, setIngredients] = useState([])
+  // const [ingredients, setIngredients] = useState([])
 
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
   const handleIngredientChange = (index, value) => {
-    const updatedIngredients = [...formData.ingredients]
+    const updatedIngredients = formData.ingredients
     updatedIngredients[index] = value
     setFormData({ ...formData, ingredients: updatedIngredients })
   }
