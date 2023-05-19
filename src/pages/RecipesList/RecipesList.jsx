@@ -23,7 +23,7 @@ const RecipesList = (props) => {
       setSearchResults(recipeData)
     }
     fetchAllRecipes()
-  }, [])
+  }, [props.recipes])
 
   const handleRecipeSearch = formData => {
     const filteredRecipeResults = allRecipes.filter(recipe => (
