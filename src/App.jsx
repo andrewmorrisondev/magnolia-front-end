@@ -146,29 +146,36 @@ function App() {
         />
         <Route path="/recipes" 
           element={
-            <RecipesList  
-              recipes={recipes}
-              handleAddRecipe={handleAddRecipe}
-            />}
+            <ProtectedRoute user={user}>
+              <RecipesList  
+                recipes={recipes}
+                handleAddRecipe={handleAddRecipe}
+              />
+            </ProtectedRoute>
+          }
         />
         <Route 
           path={'/recipes/:recipeId'}
           element={
-            <RecipeDetails 
-              user={user}
-              handleDeleteRecipe={handleDeleteRecipe}
-            />
+            <ProtectedRoute user={user}>
+              <RecipeDetails 
+                user={user}
+                handleDeleteRecipe={handleDeleteRecipe}
+              />
+            </ProtectedRoute>
           }
         />
         <Route 
           path={'/recipes/:recipeId/edit'}
           element={
-            <EditRecipe 
-              user={user} 
-              profile={profile}
-              recipes={recipes}
-              handleUpdateRecipe={handleUpdateRecipe}
-            />
+            <ProtectedRoute user={user}>
+              <EditRecipe 
+                user={user} 
+                profile={profile}
+                recipes={recipes}
+                handleUpdateRecipe={handleUpdateRecipe}
+              />
+            </ProtectedRoute>
           }
         />
 
